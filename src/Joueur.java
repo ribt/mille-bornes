@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class Joueur  {
 	public final String nom;
 	private final EtatJoueur etat;
@@ -5,42 +7,44 @@ public class Joueur  {
 	private Joueur prochainJoueur;
 
 	public Joueur(String nom) {
-		// TO DO
+		this.nom = nom;
+		this.etat = new EtatJoueur(this);
+		this.input = new Scanner(System.in);
 	}
 
 	/*
 	Récupère le prochain joueur
 	*/
 	public Joueur getProchainJoueur() {
-		// TO DO
+		return prochainJoueur;
 	}
 
 	/*
 	Règle le prochain joueur : définit la position autour de la table...
 	*/
 	public void setProchainJoueur(Joueur j) {
-		// TO DO
+		this.prochainJoueur = j;
 	}
 
 	/*
 	Retourne une copie non modifiable de la main
 	*/
 	public List<Carte> getMain() {
-		// TO DO
+		return etat.getMain();
 	}
 
 	/*
 	Retourne le nombre de kilomètres parcourus par le joueur
 	*/
 	public int getKm() {
-		// TO DO
+		return etat.getKm();
 	}
 
 	/*
 	Teste si la vitesse est actuellement limitée.
 	*/
 	public boolean getLimiteVitesse() {
-		// TO DO
+		return etat.getLimiteVitesse();
 	}
 
 	/*
@@ -77,7 +81,7 @@ public class Joueur  {
 	IllegalStateException - si la main contient déjà plus de 6 cartes
 	*/
 	public void prendCarte(Carte carte) throws IllegalStateException {
-		// TO DO
+		etat.prendCarte(carte);
 	}
 
 	/*
@@ -91,7 +95,7 @@ public class Joueur  {
 	IllegalStateException - si la carte n'est pas jouable
 	*/
 	public void joueCarte(Jeu jeu, int numero) throws IllegalStateException {
-		// TO DO
+		etat.joueCarte(jeu, numero);
 	}
 
 	/*
@@ -102,21 +106,21 @@ public class Joueur  {
 	numero - l'index de la carte dans la main (de 0 à 6)
 	*/
 	public void defausseCarte(Jeu jeu, int numero) {
-		// TO DO
+		etat.defausseCarte(jeu, numero);
 	}
 
 	/*
 	Applique une attaque à ce joueur.
-	 Résoud le coup-fourré si possible.
+	 Résout le coup-fourré si possible.
 	
 	Parameters:
 	jeu - le jeu
-	carte - l'attaque à apliquer
+	carte - l'attaque à appliquer
 	Throws:
 	IllegalStateException - si l'attque n'est pas applicable
 	*/
 	public void attaque(Jeu jeu, Attaque carte) throws IllegalStateException {
-		// TO DO
+		etat.attaque(jeu, carte);
 	}
 
 	/*
@@ -131,7 +135,7 @@ public class Joueur  {
 	IllegalStateException - si la carte n'est pas jouable
 	*/
 	public void joueCarte(Jeu jeu, int numero, Joueur adversaire) throws IllegalStateException {
-		// TO DO
+		etat.joueCarte(jeu, numero, adversaire);
 	}
 
 	/*
@@ -141,7 +145,7 @@ public class Joueur  {
 	la carte au sommet de la pile de bataille, ou null si elle est vide.
 	*/
 	public Bataille getBataille() {
-		// TO DO
+		return etat.getBataille();
 	}
 
 	/*
@@ -151,7 +155,7 @@ public class Joueur  {
 	un texte explicatif, ou null si le joueur peut avancer
 	*/
 	public String ditPourquoiPeutPasAvancer() {
-		// TO DO
+		return etat.ditPourquoiPeutPasAvancer();
 	}
 
 	/*
@@ -163,7 +167,7 @@ public class Joueur  {
 	le nom et l'état interne du joueur sur la même ligne.
 	*/
 	public String toString() {
-		// TO DO
+		return "Joueur "+nom+", "+etat.toString();
 	}
 
 	/*
@@ -175,6 +179,6 @@ public class Joueur  {
 	Collections.unmodifiableList(List)
 	*/
 	public List<Botte> getBottes() {
-		// TO DO
+		return etat.getBottes();
 	}
 }
