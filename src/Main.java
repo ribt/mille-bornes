@@ -1,9 +1,8 @@
 public class Main  {
 
-	public Main() {
-		// TO DO
-	}
 	public static void main(String[] args) {
-		// TO DO
+		Jeu jeu = new Jeu(new Joueur("ribt"));
+		jeu.prepareJeu();
+		System.out.println(jeu);
 	}
 }
