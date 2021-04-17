@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class EtatJoueur  {
 	private final Joueur joueur;
 	private final Stack<Bataille> pileBataille;
@@ -7,14 +9,20 @@ public class EtatJoueur  {
 	private boolean limiteVitesse;
 
 	EtatJoueur(Joueur joueur) {
+		this.joueur = joueur;
 		// TO DO
+		this.pileBataille = new Stack<Bataille>();
+		this.main = new ArrayList<Carte>();
+		this.bottes = new ArrayList<Botte>();
+		this.km = 0;
+		this.limiteVitesse = false;
 	}
 
 	/*
 	Retourne le nombre de kilomètres parcourus.
 	*/
 	public int getKm() {
-		// TO DO
+		return km;
 	}
 
 	/*
@@ -26,7 +34,13 @@ public class EtatJoueur  {
 	IllegalStateException - si le joueur ne peut pas avancer, ou s'il essaye d'avancer plus que la limite.
 	*/
 	public void ajouteKm(int km) throws IllegalStateException {
-		// TO DO
+		if (limiteVitesse && km > 50) {
+			throw new IllegalStateException("Le joueur est limité à 50 km/h.")
+		}
+		if (this.km + km > 1000) {
+			throw new IllegalStateException("Il n'est pas possible de dépasser les 1000 km.")
+		}
+		this.km += km;
 	}
 
 	/*
@@ -37,13 +51,14 @@ public class EtatJoueur  {
 	*/
 	public String ditPourquoiPeutPasAvancer() {
 		// TO DO
+		return null;
 	}
 
 	/*
 	Teste si la vitesse est actuellement limitée.
 	*/
 	public boolean getLimiteVitesse() {
-		// TO DO
+		return limiteVitesse;
 	}
 
 	/*
@@ -53,7 +68,7 @@ public class EtatJoueur  {
 	limiteVitesse - si vrai, le joueur ne pourra plus avancer que de 50 km par tour de jeu.
 	*/
 	public void setLimiteVitesse(boolean limiteVitesse) {
-		// TO DO
+		this.limiteVitesse = limiteVitesse;
 	}
 
 	/*
@@ -63,7 +78,7 @@ public class EtatJoueur  {
 	la carte au sommet de la pile de bataille, ou null si elle est vide.
 	*/
 	public Bataille getBataille() {
-		// TO DO
+		return pileBataille.pop();
 	}
 
 	/*
@@ -74,7 +89,7 @@ public class EtatJoueur  {
 	carte - la carte à ajouter
 	*/
 	public void setBataille(Bataille carte) {
-		// TO DO
+		pileBataille.push(carte);
 	}
 
 	/*
@@ -84,7 +99,7 @@ public class EtatJoueur  {
 	jeu - le jeu (et sa défausse)
 	*/
 	public void defausseBataille(Jeu jeu) {
-		// TO DO
+		jeu.defausse(pileBataille.pop());
 	}
 
 	/*
@@ -96,7 +111,7 @@ public class EtatJoueur  {
 	Collections.unmodifiableList(List)
 	*/
 	public List<Carte> getMain() {
-		// TO DO
+		return Collections.unmodifiableList(main);
 	}
 
 	/*
@@ -112,16 +127,16 @@ public class EtatJoueur  {
 
 	/*
 	Applique une attaque à ce joueur.
-	 Résoud le coup-fourré si possible.
+	 Résout le coup-fourré si possible.
 	
 	Parameters:
 	jeu - le jeu
-	carte - l'attaque à apliquer
+	carte - l'attaque à appliquer
 	Throws:
 	IllegalStateException - si l'attque n'est pas applicable
 	*/
 	public void attaque(Jeu jeu, Attaque carte) throws IllegalStateException {
-		// TO DO
+		carte.appliqueEffet(jeu, this);
 	}
 
 	/*
@@ -146,7 +161,10 @@ public class EtatJoueur  {
 	IllegalStateException - si le joueur a déjà plus de 6 cartes
 	*/
 	public void prendCarte(Carte carte) throws IllegalStateException {
-		// TO DO
+		if (main.size() == 6) {
+			throw new IllegalStateException("Le joueur a déjà 6 cartes en main.");
+		}
+		main.add(carte);
 	}
 
 	/*
@@ -157,7 +175,8 @@ public class EtatJoueur  {
 	numero - l'index de la carte dans la main (de 0 à 6)
 	*/
 	public void defausseCarte(Jeu jeu, int numero) {
-		// TO DO
+		jeu.defausse(main.get(numero));
+		main.remove(numero);
 	}
 
 	/*
@@ -171,7 +190,12 @@ public class EtatJoueur  {
 	IllegalStateException - si la carte n'est pas jouable
 	*/
 	public void joueCarte(Jeu jeu, int numero) throws IllegalStateException {
-		// TO DO
+		Carte carte = main.get(numero);
+		if (carte instanceof Attaque) {
+			throw new IllegalStateException("La carte est une attaque donc il faut spécifier un adversaire.");
+		}
+		carte.appliqueEffet(jeu, this);
+		defausseCarte(jeu, numero);
 	}
 
 	/*
@@ -186,7 +210,12 @@ public class EtatJoueur  {
 	IllegalStateException - si la carte n'est pas jouable
 	*/
 	public void joueCarte(Jeu jeu, int numero, Joueur adversaire) throws IllegalStateException {
+		Carte carte = main.get(numero);
+		if (!(carte instanceof Attaque)) {
+			throw new IllegalStateException("La carte n'est pas une attaque donc il ne faut pas spécifier d'adversaire.");
+		}
 		// TO DO
+		defausseCarte(jeu, numero);
 	}
 
 	/*
@@ -198,6 +227,6 @@ public class EtatJoueur  {
 	Collections.unmodifiableList(List)
 	*/
 	public List<Botte> getBottes() {
-		// TO DO
+		return bottes;
 	}
 }
