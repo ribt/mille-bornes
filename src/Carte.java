@@ -3,7 +3,8 @@ public abstract class Carte  {
 	public final Categorie categorie;
 
 	public Carte(String nom, Categorie categorie) {
-		// TO DO
+		this.nom = nom;
+		this.categorie = categorie;
 	}
 
 	/*
@@ -15,9 +16,7 @@ public abstract class Carte  {
 	Throws:
 	IllegalStateException - si la carte n'est pas applicable
 	*/
-	public abstract void appliqueEffet(Jeu jeu, EtatJoueur joueur) throws IllegalStateException {
-		// TO DO
-	}
+	public abstract void appliqueEffet(Jeu jeu, EtatJoueur joueur) throws IllegalStateException;
 
 	/*
 	Décrit la carte.
@@ -28,6 +27,6 @@ public abstract class Carte  {
 	le nom de la carte
 	*/
 	public String toString() {
-		// TO DO
+		return nom;
 	}
 }
