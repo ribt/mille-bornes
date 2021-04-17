@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class Jeu  {
 	private final List<Joueur> joueurs;
 	private Joueur joueurActif;
@@ -6,11 +8,18 @@ public class Jeu  {
 	private TasDeCartes defausse;
 
 	public Jeu() {
-		// TO DO
+		this.joueurs = new ArrayList<Joueur>();
+		this.joueurActif = null;
+		this.prochainJoueur = null;
 	}
 
 	public Jeu(Joueur... joueurs) {
-		// TO DO
+		this.joueurs = new ArrayList<Joueur>();
+		for (Joueur j: joueurs) {
+			this.joueurs.add(j);
+		}
+		this.joueurActif = null;
+		this.prochainJoueur = null;
 	}
 
 	/*
@@ -22,7 +31,12 @@ public class Jeu  {
 	IllegalStateException - si la partie a déjà commencé
 	*/
 	public void ajouteJoueurs(Joueur... joueurs) throws IllegalStateException {
-		// TO DO
+		if (joueurActif != null) {
+			throw new IllegalStateException("La partie a déjà commencé.");
+		}
+		for (Joueur j: joueurs) {
+			this.joueurs.add(j);
+		}
 	}
 
 	/*
@@ -36,7 +50,15 @@ public class Jeu  {
 	 choisit le prochain joueur
 	*/
 	public void prepareJeu() {
-		// TO DO
+		Collections.shuffle(joueurs);
+		sabot = new TasDeCartes(true);
+		sabot.melangeCartes();
+		defausse = new TasDeCartes(false);
+		
+		// TO DO : distribuer les cartes
+		
+		joueurActif = joueurs.get(0);
+		prochainJoueur = joueurActif.getProchainJoueur();
 	}
 
 	/*
@@ -55,7 +77,18 @@ public class Jeu  {
 	une chaîne contenant une ligne par joueur, indiquant son nom et son jeu visible, et une ligne indiquant le nombre de carte restant au sabot et la carte visible de la défausse.
 	*/
 	public String toString() {
-		// TO DO
+		String txt = "";
+		for (Joueur j: joueurs) {
+			if (j == joueurActif) {
+				txt += "> ";
+			} else {
+				txt += "  ";
+			}
+			txt += j.toString() + "\n";
+		}
+		txt += "Pioche : "+this.getNbCartesSabot()+" cartes; ";
+		txt += "Défausse : "+this.defausse.getNbCartes()+" cartes";
+		return txt;
 	}
 
 	/*
@@ -72,6 +105,7 @@ public class Jeu  {
 	*/
 	public boolean joue() {
 		// TO DO
+		return estPartieFinie();
 	}
 
 	/*
@@ -85,7 +119,12 @@ public class Jeu  {
 	Teste si la partie est finie.
 	*/
 	public boolean estPartieFinie() {
-		// TO DO
+		for (Joueur j: joueurs) {
+			if (j.getKm() == 1000) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	/*
@@ -95,14 +134,14 @@ public class Jeu  {
 	prochainJoueurActif - le prochain joueur à jouer
 	*/
 	public void setProchainJoueur(Joueur prochainJoueurActif) {
-		// TO DO
+		this.prochainJoueur = prochainJoueurActif;
 	}
 
 	/*
 	Retourne le joueur actif : celui qui joue en ce moment.
 	*/
 	public Joueur getJoueurActif() {
-		// TO DO
+		return this.joueurActif;
 	}
 
 	/*
@@ -114,6 +153,7 @@ public class Jeu  {
 	*/
 	public List<Joueur> getGagnant() {
 		// TO DO
+		return null;
 	}
 
 	/*
@@ -123,7 +163,7 @@ public class Jeu  {
 	la carte à ajouter à sa main
 	*/
 	public Carte pioche() {
-		// TO DO
+		return sabot.prend();
 	}
 
 	/*
@@ -133,14 +173,14 @@ public class Jeu  {
 	carte - la carte à défausser
 	*/
 	public void defausse(Carte carte) {
-		// TO DO
+		defausse.pose(carte);
 	}
 
 	/*
 	Retourne le nombre de cartes restant au sabot.
 	*/
 	public int getNbCartesSabot() {
-		// TO DO
+		return sabot.getNbCartes();
 	}
 
 	/*
@@ -150,6 +190,6 @@ public class Jeu  {
 	null si la défausse est vide, la carte du dessus sinon
 	*/
 	public Carte regardeDefausse() {
-		// TO DO
+		return defausse.regarde();
 	}
 }
