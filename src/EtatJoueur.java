@@ -35,10 +35,10 @@ public class EtatJoueur  {
 	*/
 	public void ajouteKm(int km) throws IllegalStateException {
 		if (limiteVitesse && km > 50) {
-			throw new IllegalStateException("Le joueur est limité à 50 km/h.")
+			throw new IllegalStateException("Le joueur est limité à 50 km/h.");
 		}
 		if (this.km + km > 1000) {
-			throw new IllegalStateException("Il n'est pas possible de dépasser les 1000 km.")
+			throw new IllegalStateException("Il n'est pas possible de dépasser les 1000 km.");
 		}
 		this.km += km;
 	}
@@ -149,7 +149,12 @@ public class EtatJoueur  {
 	une ligne de texte contenant la distance parcourue, la limite de vitesse en cours, les bottes exposées et la carte au sommet de la pile de bataille.
 	*/
 	public String toString() {
-		// TO DO
+		String txt = km+" km ";
+		if (limiteVitesse) {
+			txt += "(50) ";
+		}
+		// TO DO : ajouter les bottes et le sommet de Bataille
+		return txt;
 	}
 
 	/*
