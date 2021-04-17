@@ -1,7 +1,7 @@
 public class PanneEssence extends Attaque {
 
 	public PanneEssence() {
-		// TO DO
+		super("Panne d'essance");
 	}
 
 	/*
@@ -12,7 +12,7 @@ public class PanneEssence extends Attaque {
 	estContreeParCiterne in class Bataille
 	*/
 	public boolean estContreeParCiterne() {
-		// TO DO
+		return true;
 	}
 
 	/*
@@ -23,6 +23,6 @@ public class PanneEssence extends Attaque {
 	estContreeParEssence in class Bataille
 	*/
 	public boolean estContreeParEssence() {
-		// TO DO
+		return true;
 	}
 }

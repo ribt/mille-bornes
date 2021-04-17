@@ -1,7 +1,7 @@
 public class Crevaison extends Attaque {
 
 	public Crevaison() {
-		// TO DO
+		super("Crevaison");
 	}
 
 	/*
@@ -12,7 +12,7 @@ public class Crevaison extends Attaque {
 	estContreeParIncrevable in class Bataille
 	*/
 	public boolean estContreeParIncrevable() {
-		// TO DO
+		return true;
 	}
 
 	/*
@@ -23,6 +23,6 @@ public class Crevaison extends Attaque {
 	estContreeParRoueDeSecours in class Bataille
 	*/
 	public boolean estContreeParRoueDeSecours() {
-		// TO DO
+		return true;
 	}
 }

@@ -8,63 +8,63 @@ public abstract class Bataille extends Carte {
 	Teste si cette carte est contrée par un Feu Vert
 	*/
 	public boolean estContreeParFeuVert() {
-		// TO DO
+		return false;
 	}
 
 	/*
 	Teste si cette carte est contrée par une Fin de Limite de Vitesse
 	*/
 	public boolean estContreeParFinDeLimite() {
-		// TO DO
+		return false;
 	}
 
 	/*
 	Teste si cette carte est contrée par une Essence
 	*/
 	public boolean estContreeParEssence() {
-		// TO DO
+		return false;
 	}
 
 	/*
 	Teste si cette carte est contrée par une Roue de Secours
 	*/
 	public boolean estContreeParRoueDeSecours() {
-		// TO DO
+		return false;
 	}
 
 	/*
 	Teste si cette carte est contrée par des Réparations
 	*/
 	public boolean estContreeParReparations() {
-		// TO DO
+		return false;
 	}
 
 	/*
 	Teste si cette carte est contrée par un Véhicule Prioritaire
 	*/
 	public boolean estContreeParVehiculePrioritaire() {
-		// TO DO
+		return false;
 	}
 
 	/*
 	Teste si cette carte est contrée par une Citerne
 	*/
 	public boolean estContreeParCiterne() {
-		// TO DO
+		return false;
 	}
 
 	/*
 	Teste si cette carte est contrée par un Increvable
 	*/
 	public boolean estContreeParIncrevable() {
-		// TO DO
+		return false;
 	}
 
 	/*
 	Teste si cette carte est contrée par un As du Volant
 	*/
 	public boolean estContreeParAsDuVolant() {
-		// TO DO
+		return false;
 	}
 
 	/*
@@ -73,9 +73,7 @@ public abstract class Bataille extends Carte {
 	Parameters:
 	carte - l'attaque à contrer
 	*/
-	public abstract boolean contre(Attaque carte) {
-		// TO DO
-	}
+	public abstract boolean contre(Attaque carte);
 
 	/*
 	Applique les effets de la carte au joueur cible.

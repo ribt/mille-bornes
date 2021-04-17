@@ -1,7 +1,7 @@
 public class Accident extends Attaque {
 
 	public Accident() {
-		// TO DO
+		super("Accident");
 	}
 
 	/*
@@ -12,7 +12,7 @@ public class Accident extends Attaque {
 	estContreeParAsDuVolant in class Bataille
 	*/
 	public boolean estContreeParAsDuVolant() {
-		// TO DO
+		return true;
 	}
 
 	/*
@@ -23,6 +23,6 @@ public class Accident extends Attaque {
 	estContreeParReparations in class Bataille
 	*/
 	public boolean estContreeParReparations() {
-		// TO DO
+		return true;
 	}
 }

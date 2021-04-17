@@ -1,7 +1,7 @@
 public class FeuRouge extends Attaque {
 
 	public FeuRouge() {
-		// TO DO
+		super("Feu Rouge");
 	}
 
 	/*
@@ -12,7 +12,7 @@ public class FeuRouge extends Attaque {
 	estContreeParFeuVert in class Bataille
 	*/
 	public boolean estContreeParFeuVert() {
-		// TO DO
+		return true;
 	}
 
 	/*
@@ -23,6 +23,6 @@ public class FeuRouge extends Attaque {
 	estContreeParVehiculePrioritaire in class Bataille
 	*/
 	public boolean estContreeParVehiculePrioritaire() {
-		// TO DO
+		return true;
 	}
 }

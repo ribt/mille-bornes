@@ -1,7 +1,7 @@
 public class LimiteVitesse extends Attaque {
 
 	public LimiteVitesse() {
-		// TO DO
+		super("Limite de vitesse");
 	}
 
 	/*
@@ -12,7 +12,7 @@ public class LimiteVitesse extends Attaque {
 	estContreeParFinDeLimite in class Bataille
 	*/
 	public boolean estContreeParFinDeLimite() {
-		// TO DO
+		return true;
 	}
 
 	/*
@@ -23,7 +23,7 @@ public class LimiteVitesse extends Attaque {
 	estContreeParVehiculePrioritaire in class Bataille
 	*/
 	public boolean estContreeParVehiculePrioritaire() {
-		// TO DO
+		return true;
 	}
 
 	/*
