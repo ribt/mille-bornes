@@ -56,6 +56,7 @@ public class Joueur  {
 	*/
 	public int choisitCarte() {
 		// TO DO
+		return 0;
 	}
 
 	/*
@@ -70,6 +71,7 @@ public class Joueur  {
 	*/
 	public Joueur choisitAdversaire(Carte carte) throws IllegalStateException {
 		// TO DO
+		return null;
 	}
 
 	/*
@@ -167,7 +169,7 @@ public class Joueur  {
 	le nom et l'état interne du joueur sur la même ligne.
 	*/
 	public String toString() {
-		return "Joueur "+nom+", "+etat.toString();
+		return nom+" : "+etat.toString();
 	}
 
 	/*

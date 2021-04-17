@@ -1,7 +1,7 @@
 public abstract class Parade extends Bataille {
 
 	public Parade(String nom) {
-		// TO DO
+		super(nom, Categorie.PARADE);
 	}
 
 	/*

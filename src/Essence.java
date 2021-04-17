@@ -1,7 +1,7 @@
 public class Essence extends Parade {
 
 	public Essence() {
-		// TO DO
+		super("Essence");
 	}
 
 	/*
@@ -14,6 +14,6 @@ public class Essence extends Parade {
 	carte - l'attaque à contrer
 	*/
 	public boolean contre(Attaque carte) {
-		// TO DO
+		return (carte instanceof PanneEssence);
 	}
 }

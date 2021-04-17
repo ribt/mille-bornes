@@ -1,7 +1,7 @@
 public class RoueDeSecours extends Parade {
 
 	public RoueDeSecours() {
-		// TO DO
+		super("Roue de secours");
 	}
 
 	/*
@@ -14,6 +14,6 @@ public class RoueDeSecours extends Parade {
 	carte - l'attaque à contrer
 	*/
 	public boolean contre(Attaque carte) {
-		// TO DO
+		return carte instanceof Crevaison;
 	}
 }

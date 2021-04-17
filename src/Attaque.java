@@ -1,7 +1,7 @@
 public abstract class Attaque extends Bataille {
 
 	public Attaque(String nom) {
-		// TO DO
+		super(nom, Categorie.ATTAQUE);
 	}
 
 	/*
@@ -15,7 +15,7 @@ public abstract class Attaque extends Bataille {
 	toujours faux
 	*/
 	public boolean contre(Attaque carte) {
-		// TO DO
+		return false;
 	}
 
 	/*

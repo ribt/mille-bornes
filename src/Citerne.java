@@ -2,7 +2,7 @@ public class Citerne extends Botte {
 	public static final Citerne unique;
 
 	private Citerne() {
-		// TO DO
+		super("Citerne");
 	}
 
 	/*
@@ -15,7 +15,7 @@ public class Citerne extends Botte {
 	carte - l'attaque à contrer
 	*/
 	public boolean contre(Attaque carte) {
-		// TO DO
+		return carte instanceof PanneEssence;
 	}
 
 	/*

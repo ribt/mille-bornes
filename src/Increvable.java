@@ -2,7 +2,7 @@ public class Increvable extends Botte {
 	public static final Increvable unique;
 
 	private Increvable() {
-		// TO DO
+		super("Increvable");
 	}
 
 	/*
@@ -15,7 +15,7 @@ public class Increvable extends Botte {
 	carte - l'attaque à contrer
 	*/
 	public boolean contre(Attaque carte) {
-		// TO DO
+		return carte instanceof Crevaison;
 	}
 
 	/*

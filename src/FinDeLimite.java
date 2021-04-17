@@ -1,7 +1,7 @@
 public class FinDeLimite extends Parade {
 
 	public FinDeLimite() {
-		// TO DO
+		super("Fin de limite");
 	}
 
 	/*
@@ -14,7 +14,7 @@ public class FinDeLimite extends Parade {
 	carte - l'attaque à contrer
 	*/
 	public boolean contre(Attaque carte) {
-		// TO DO
+		return carte instanceof LimiteVitesse;
 	}
 
 	/*

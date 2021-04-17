@@ -2,7 +2,7 @@ public class VehiculePrioritaire extends Botte {
 	public static final VehiculePrioritaire unique;
 
 	private VehiculePrioritaire() {
-		// TO DO
+		super("Véhicule proiritaire");
 	}
 
 	/*
@@ -15,7 +15,7 @@ public class VehiculePrioritaire extends Botte {
 	carte - l'attaque à contrer
 	*/
 	public boolean contre(Attaque carte) {
-		// TO DO
+		return (carte instanceof LimiteVitesse || carte instanceof FeuRouge);
 	}
 
 	/*

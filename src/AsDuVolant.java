@@ -2,7 +2,7 @@ public class AsDuVolant extends Botte {
 	public static final AsDuVolant unique;
 
 	private AsDuVolant() {
-		// TO DO
+		super("As du volant");
 	}
 
 	/*
@@ -15,7 +15,7 @@ public class AsDuVolant extends Botte {
 	carte - l'attaque à contrer
 	*/
 	public boolean contre(Attaque carte) {
-		// TO DO
+		return carte instanceof Accident;
 	}
 
 	/*

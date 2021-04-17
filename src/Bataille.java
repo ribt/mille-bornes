@@ -1,7 +1,7 @@
 public abstract class Bataille extends Carte {
 
 	public Bataille(String nom, Categorie categorie) {
-		// TO DO
+		super(nom, categorie);
 	}
 
 	/*

@@ -1,7 +1,7 @@
 public abstract class Botte extends Carte {
 
 	public Botte(String nom) {
-		// TO DO
+		super(nom, Categorie.BOTTE);
 	}
 
 	/*
@@ -10,9 +10,7 @@ public abstract class Botte extends Carte {
 	Parameters:
 	carte - l'attaque à contrer
 	*/
-	public abstract boolean contre(Attaque carte) {
-		// TO DO
-	}
+	public abstract boolean contre(Attaque carte);
 
 	/*
 	Applique les effets de la carte au joueur cible, et lui transfère le tour de jeu.
@@ -23,7 +21,5 @@ public abstract class Botte extends Carte {
 	jeu - le jeu
 	joueur - le joueur ciblé
 	*/
-	public abstract void appliqueEffet(Jeu jeu, EtatJoueur joueur) {
-		// TO DO
-	}
+	public abstract void appliqueEffet(Jeu jeu, EtatJoueur joueur);
 }

@@ -1,7 +1,7 @@
 public class Reparations extends Parade {
 
 	public Reparations() {
-		// TO DO
+		super("Réparations");
 	}
 
 	/*
@@ -14,6 +14,6 @@ public class Reparations extends Parade {
 	carte - l'attaque à contrer
 	*/
 	public boolean contre(Attaque carte) {
-		// TO DO
+		return carte instanceof Accident;
 	}
 }

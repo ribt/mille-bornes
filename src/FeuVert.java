@@ -1,7 +1,7 @@
 public class FeuVert extends Parade {
 
 	public FeuVert() {
-		// TO DO
+		super("Feu vert");
 	}
 
 	/*
@@ -14,7 +14,7 @@ public class FeuVert extends Parade {
 	carte - l'attaque à contrer
 	*/
 	public boolean contre(Attaque carte) {
-		// TO DO
+		return carte instanceof FeuRouge;
 	}
 
 	/*
