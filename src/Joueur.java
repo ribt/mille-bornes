@@ -55,7 +55,7 @@ public class Joueur  {
 	un entier entre -7 et +7 permettant de défausser (<0) ou de jouer (>0) la carte correspondante
 	*/
 	public int choisitCarte() {
-		// TO DO
+		// TODO
 		return 0;
 	}
 
@@ -70,7 +70,7 @@ public class Joueur  {
 	IllegalStateException - si le joueur décide d'annuler son attaque
 	*/
 	public Joueur choisitAdversaire(Carte carte) throws IllegalStateException {
-		// TO DO
+		// TODO
 		return null;
 	}
 

@@ -30,6 +30,6 @@ public class FeuVert extends Parade {
 	IllegalStateException - si la carte n'est pas applicable
 	*/
 	public void appliqueEffet(Jeu jeu, EtatJoueur joueur) throws IllegalStateException {
-		// TO DO
+		// TODO
 	}
 }

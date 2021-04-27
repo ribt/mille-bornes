@@ -2,7 +2,7 @@ public class Borne extends Carte {
 	public final int km;
 
 	public Borne(int km) {
-		// TO DO
+		// TODO
 	}
 
 	/*
@@ -17,6 +17,6 @@ public class Borne extends Carte {
 	IllegalStateException - si le joueur est immobilisé
 	*/
 	public void appliqueEffet(Jeu jeu, EtatJoueur joueur) throws IllegalStateException {
-		// TO DO
+		// TODO
 	}
 }

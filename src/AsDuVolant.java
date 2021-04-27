@@ -29,6 +29,6 @@ public class AsDuVolant extends Botte {
 	joueur - le joueur ciblé
 	*/
 	public void appliqueEffet(Jeu jeu, EtatJoueur joueur) {
-		// TO DO
+		// TODO
 	}
 }

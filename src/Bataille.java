@@ -87,6 +87,6 @@ public abstract class Bataille extends Carte {
 	IllegalStateException - si la carte n'est pas applicable
 	*/
 	public void appliqueEffet(Jeu jeu, EtatJoueur joueur) throws IllegalStateException {
-		// TO DO
+		// TODO
 	}
 }

@@ -10,7 +10,7 @@ public class EtatJoueur  {
 
 	EtatJoueur(Joueur joueur) {
 		this.joueur = joueur;
-		// TO DO
+		// TODO
 		this.pileBataille = new Stack<Bataille>();
 		this.main = new ArrayList<Carte>();
 		this.bottes = new ArrayList<Botte>();
@@ -50,7 +50,7 @@ public class EtatJoueur  {
 	un texte explicatif, ou null si le joueur peut avancer
 	*/
 	public String ditPourquoiPeutPasAvancer() {
-		// TO DO
+		// TODO
 		return null;
 	}
 
@@ -122,7 +122,7 @@ public class EtatJoueur  {
 	carte - la botte à jouer
 	*/
 	public void addBotte(Botte carte) {
-		// TO DO
+		// TODO
 	}
 
 	/*
@@ -153,7 +153,7 @@ public class EtatJoueur  {
 		if (limiteVitesse) {
 			txt += "(50) ";
 		}
-		// TO DO : ajouter les bottes et le sommet de Bataille
+		// TODO : ajouter les bottes et le sommet de Bataille
 		return txt;
 	}
 
@@ -219,7 +219,7 @@ public class EtatJoueur  {
 		if (!(carte instanceof Attaque)) {
 			throw new IllegalStateException("La carte n'est pas une attaque donc il ne faut pas spécifier d'adversaire.");
 		}
-		// TO DO
+		// TODO
 		defausseCarte(jeu, numero);
 	}
 

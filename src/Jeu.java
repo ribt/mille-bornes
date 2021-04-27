@@ -55,7 +55,7 @@ public class Jeu  {
 		sabot.melangeCartes();
 		defausse = new TasDeCartes(false);
 		
-		// TO DO : distribuer les cartes
+		// TODO : distribuer les cartes
 		
 		joueurActif = joueurs.get(0);
 		prochainJoueur = joueurActif.getProchainJoueur();
@@ -104,7 +104,7 @@ public class Jeu  {
 	vrai ssi la partie est terminée : le sabot est vide (le joueur ne peut tirer de 7° carte) ou le joueur a atteint 1000 km.
 	*/
 	public boolean joue() {
-		// TO DO
+		// TODO
 		return estPartieFinie();
 	}
 
@@ -112,7 +112,7 @@ public class Jeu  {
 	Active le joueur suivant de la partie et lui fait tirer une carte si la partie n'est pas terminée.
 	*/
 	public void activeProchainJoueurEtTireCarte() {
-		// TO DO
+		// TODO
 	}
 
 	/*
@@ -152,7 +152,7 @@ public class Jeu  {
 	La liste des joueurs ayant le plus de kilomètres. ( les gagnants ex-aequo )
 	*/
 	public List<Joueur> getGagnant() {
-		// TO DO
+		// TODO
 		return null;
 	}
 
