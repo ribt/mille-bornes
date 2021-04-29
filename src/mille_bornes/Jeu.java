@@ -2,6 +2,8 @@ package mille_bornes;
 
 import java.util.*;
 
+import mille_bornes.cartes.Carte;
+
 public class Jeu  {
 	private final List<Joueur> joueurs;
 	private Joueur joueurActif;
