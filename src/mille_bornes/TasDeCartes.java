@@ -1,13 +1,19 @@
 package mille_bornes;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import mille_bornes.cartes.Carte;
+
 public class TasDeCartes  {
 	private final List<Carte> cartes;
 
 	public TasDeCartes(boolean creerLesCartes) {
 		if(creerLesCartes) {
+			this.cartes = null; // sinon ça compile pas
 			this.creeLesCartes();
 		} else {
-			this.cartes = new Arraylist<>();
+			this.cartes = new ArrayList<Carte>();
 		}
 	}
 
@@ -32,28 +38,28 @@ public class TasDeCartes  {
 	retourne le nombre de cartes présentes dans le tas.
 	*/
 	public int getNbCartes() {
-		// TODO
+		return cartes.size();
 	}
 
 	/*
 	Teste si le tas est vide.
 	*/
 	public boolean estVide() {
-		// TODO
+		return cartes.isEmpty();
 	}
 
 	/*
 	Montre la première carte du tas, sans la retirer.
 	*/
 	public Carte regarde() {
-		// TODO
+		return cartes.get(0);
 	}
 
 	/*
 	Tire et retourne la première carte du tas.
 	*/
 	public Carte prend() {
-		// TODO
+		return cartes.remove(0);
 	}
 
 	/*

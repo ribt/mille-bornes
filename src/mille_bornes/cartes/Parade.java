@@ -1,5 +1,8 @@
 package mille_bornes.cartes;
 
+import mille_bornes.EtatJoueur;
+import mille_bornes.Jeu;
+
 public abstract class Parade extends Bataille {
 
 	public Parade(String nom) {
