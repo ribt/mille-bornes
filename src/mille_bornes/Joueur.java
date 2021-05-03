@@ -2,11 +2,6 @@ package mille_bornes;
 
 import java.util.*;
 
-import mille_bornes.cartes.Attaque;
-import mille_bornes.cartes.Bataille;
-import mille_bornes.cartes.Botte;
-import mille_bornes.cartes.Carte;
-
 public class Joueur  {
 	public final String nom;
 	private final EtatJoueur etat;

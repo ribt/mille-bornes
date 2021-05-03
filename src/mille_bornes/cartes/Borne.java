@@ -1,14 +1,12 @@
 package mille_bornes.cartes;
 
 import mille_bornes.EtatJoueur;
-import mille_bornes.Jeu;
 
 public class Borne extends Carte {
 	public final int km;
 
-	public Borne(int _km) {
-		super("borne de "+_km+"km", Categorie.BORNE);
-		this.km = _km;
+	public Borne(int km) {
+		// TODO
 	}
 
 	/*
@@ -23,11 +21,6 @@ public class Borne extends Carte {
 	IllegalStateException - si le joueur est immobilisé
 	*/
 	public void appliqueEffet(Jeu jeu, EtatJoueur joueur) throws IllegalStateException {
-		if(joueur.ditPourquoiPeutPasAvancer() != null) {
-			throw new IllegalStateException("Le joueur est immobilisé");
-		}
-		else {
-			joueur.ajouteKm(km);
-		}
+		// TODO
 	}
 }

@@ -1,7 +1,6 @@
 package mille_bornes.cartes;
 
 import mille_bornes.EtatJoueur;
-import mille_bornes.Jeu;
 
 public abstract class Carte  {
 	public final String nom;
@@ -25,6 +24,7 @@ public abstract class Carte  {
 
 	/*
 	Décrit la carte.
+	
 	Overrides:
 	toString in class Object
 	Returns:
