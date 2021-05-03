@@ -7,7 +7,8 @@ public class Borne extends Carte {
 	public final int km;
 
 	public Borne(int km) {
-		// TODO
+		super("Borne "+km+" km", Categorie.BORNE);
+		this.km = km;
 	}
 
 	/*
