@@ -129,7 +129,7 @@ public class EtatJoueur  {
 	carte - la botte à jouer
 	*/
 	public void addBotte(Botte carte) {
-		// TODO
+		bottes.add(carte);
 	}
 
 	/*
