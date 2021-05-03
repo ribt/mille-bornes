@@ -59,7 +59,11 @@ public class Jeu  {
 		sabot.melangeCartes();
 		defausse = new TasDeCartes(false);
 		
-		// TODO : distribuer les cartes
+		for (int i = 0; i < joueurs.size(); i++) {
+			for (int j = 0; j < 6; j++) {
+				joueurs.get(i).prendCarte(sabot.prend());
+			}
+		}
 		
 		joueurActif = joueurs.get(0);
 		prochainJoueur = joueurActif.getProchainJoueur();
