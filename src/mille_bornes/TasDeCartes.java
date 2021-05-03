@@ -6,6 +6,7 @@ import java.util.List;
 import mille_bornes.cartes.*;
 import mille_bornes.cartes.attaques.*;
 import mille_bornes.cartes.parades.*;
+import java.util.Collections;
 // import mille_bornes.cartes.bottes.*;
 
 public class TasDeCartes {
@@ -74,7 +75,7 @@ public class TasDeCartes {
 	Collections.shuffle(List)
 	*/
 	public void melangeCartes() {
-		// TODO
+		Collections.shuffle(cartes);
 	}
 
 	/*
@@ -97,18 +98,39 @@ public class TasDeCartes {
 	public Carte regarde() {
 		return cartes.get(0);
 	}
-
 	/*
 	Tire et retourne la première carte du tas.
 	*/
 	public Carte prend() {
-		return cartes.remove(0);
+		Carte derniereCarte = cartes.get(0);
+		cartes.remove(0);
+		return derniereCarte;
 	}
 
 	/*
 	Ajoute une carte au dessus du tas. (Elle devient la première)
 	*/
 	public void pose(Carte carte) {
-		// TODO
+		cartes.add(0, carte);
+	}
+	
+	/*
+	 * Fonctions pour tester
+	 */
+	
+	public Carte get(int i) {
+		return cartes.get(i);
+	}
+	
+	public String toString() {
+		if (cartes.isEmpty()) {
+			return null;
+		}
+		String str = cartes.get(0).nom + ", ";
+		for(int i = 1; i<cartes.size()-1; i++) {
+			str = str + (cartes.get(i)+", ");
+	    }
+		str = "Contenu du tas de cartes : " + str + (cartes.get(cartes.size()-1));
+		return str;
 	}
 }
