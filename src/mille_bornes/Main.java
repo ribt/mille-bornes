@@ -7,5 +7,11 @@ public class Main  {
 		jeu.ajouteJoueurs(new Joueur("Suake"));
 		jeu.prepareJeu();
 		System.out.println(jeu);
+		
+		while(!(jeu.estPartieFinie())) {
+			jeu.joue();
+		}
+		
+		System.out.println("\nLa partie est finie.\nLe gagnant est : "+jeu.getGagnant());
 	}
 }
