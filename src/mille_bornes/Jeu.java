@@ -65,8 +65,7 @@ public class Jeu  {
 			}
 		}
 		
-		joueurActif = joueurs.get(0);
-		prochainJoueur = joueurActif.getProchainJoueur();
+		prochainJoueur = joueurs.get(0);
 	}
 
 	/*
@@ -92,7 +91,7 @@ public class Jeu  {
 			} else {
 				txt += "  ";
 			}
-			txt += j.toString() + "\n";
+			txt += j.toString() + "\n\n";
 		}
 		txt += "Pioche : "+this.getNbCartesSabot()+" cartes; ";
 		txt += "Défausse : "+this.defausse.getNbCartes()+" cartes";
@@ -112,7 +111,26 @@ public class Jeu  {
 	vrai ssi la partie est terminée : le sabot est vide (le joueur ne peut tirer de 7° carte) ou le joueur a atteint 1000 km.
 	*/
 	public boolean joue() {
-		// TODO
+		activeProchainJoueurEtTireCarte();
+		System.out.println(this);
+		int succes = 0;
+		while (succes == 0) {
+			try {
+				int choix = joueurActif.choisitCarte();
+				if (choix < 0 && -choix <= joueurActif.getMain().size()) {
+					joueurActif.defausseCarte(this, -choix-1);
+					succes = 1;
+				} else if (choix > 0 && choix <= joueurActif.getMain().size()) {
+					joueurActif.joueCarte(this, choix-1);
+					succes = 1;
+				} else {
+					throw new Exception("Choix invalide");
+				}
+			} catch (Exception e) {
+				System.out.println("Erreur : "+e.getMessage());
+			}
+		}
+
 		return estPartieFinie();
 	}
 
@@ -120,7 +138,10 @@ public class Jeu  {
 	Active le joueur suivant de la partie et lui fait tirer une carte si la partie n'est pas terminée.
 	*/
 	public void activeProchainJoueurEtTireCarte() {
-		// TODO
+		if (!estPartieFinie()) {
+			this.joueurActif = prochainJoueur;
+			joueurActif.prendCarte(pioche());
+		}
 	}
 
 	/*

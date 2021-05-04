@@ -6,7 +6,6 @@ public class Main  {
 		Jeu jeu = new Jeu(new Joueur("Ribt"));
 		jeu.ajouteJoueurs(new Joueur("Suake"));
 		jeu.prepareJeu();
-		System.out.println(jeu);
 		
 		while(!(jeu.estPartieFinie())) {
 			jeu.joue();
