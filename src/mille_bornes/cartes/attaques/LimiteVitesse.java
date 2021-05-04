@@ -50,7 +50,6 @@ public class LimiteVitesse extends Attaque {
 		}
 		else {
 			joueur.setLimiteVitesse(true);
-			joueur.setBataille(this);
 		}
 	}
 }
