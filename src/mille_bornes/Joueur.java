@@ -63,11 +63,12 @@ public class Joueur  {
 	*/
 	public int choisitCarte() {
 		List<Carte> main = getMain();
-		System.out.println("Choisissez la carte à jouer :");
+		System.out.println("\nChoisissez la carte à jouer :");
 		for (int i = 0; i < main.size(); i++) {
 			System.out.println((i+1)+" : "+main.get(i));
 		}
-
+		System.out.println("Entrez -n pour défausser la carte n.");
+		System.out.print("> ");
 		return input.nextInt();
 	}
 
@@ -94,9 +95,11 @@ public class Joueur  {
 			j = j.getProchainJoueur();
 		}
 		
+		System.out.print("> ");
 		int choix = input.nextInt();
 		while (choix <= 0 || choix > i) {
 			System.out.println("Choisissez un nombre dans la liste ci-dessus.");
+			System.out.print("> ");
 			choix = input.nextInt();
 		}
 		return adversaires.get(choix-1);

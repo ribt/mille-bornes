@@ -21,6 +21,11 @@ public abstract class Parade extends Bataille {
 	IllegalStateException - si la carte n'est pas applicable
 	*/
 	public void appliqueEffet(Jeu jeu, EtatJoueur joueur) throws IllegalStateException {
-		// TODO
+		if (joueur.getBataille() == null) {
+			throw new IllegalStateException("Il faut commencer par un feux vert");
+		}
+		if (joueur.getBataille() instanceof Attaque && this.contre((Attaque)joueur.getBataille())) {
+			joueur.setBataille(this);
+		}
 	}
 }

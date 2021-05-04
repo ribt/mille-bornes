@@ -172,11 +172,15 @@ public class EtatJoueur  {
 	public String toString() {
 		String txt = km+" km";
 		if (limiteVitesse) {
-			txt += ", limite à 50 km/h";
+			txt += ", limité à 50 km/h";
 		}
-		txt += "\nListe des bottes du joueur :";
-		for(Botte botte : bottes) {
-			txt += botte+" ";
+		if (bottes.isEmpty()) {
+			txt += "\nAucune botte";
+		} else {
+			txt += "\nListe des bottes :";
+			for(Botte botte : bottes) {
+				txt += botte+" ";
+			}
 		}
 		if (pileBataille.isEmpty()) {
 			txt += "\nLa pile de bataille est vide";
