@@ -38,6 +38,9 @@ public class FeuVert extends Parade {
 	IllegalStateException - si la carte n'est pas applicable
 	*/
 	public void appliqueEffet(Jeu jeu, EtatJoueur joueur) throws IllegalStateException {
+		if (joueur.getBataille() == null) { // la pile est vide, il faut un FeuVert pour commencer
+			joueur.setBataille(this);
+		}
 		// TODO
 	}
 }
