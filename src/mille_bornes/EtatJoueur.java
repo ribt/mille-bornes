@@ -57,7 +57,10 @@ public class EtatJoueur  {
 	un texte explicatif, ou null si le joueur peut avancer
 	*/
 	public String ditPourquoiPeutPasAvancer() {
-		// TODO
+		Carte bataille = this.getBataille();
+		if(bataille instanceof Attaque) {
+			return "Le joueur ne peut avancer car il est contré par l'attaque "+bataille;
+		}
 		return null;
 	}
 
@@ -226,8 +229,6 @@ public class EtatJoueur  {
 		if (!(carte instanceof Attaque)) {
 			throw new IllegalStateException("La carte n'est pas une attaque donc il ne faut pas spécifier d'adversaire.");
 		}
-		// TODO
-		defausseCarte(jeu, numero);
 	}
 
 	/*
