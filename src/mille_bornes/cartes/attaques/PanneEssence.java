@@ -5,7 +5,7 @@ import mille_bornes.cartes.Attaque;
 public class PanneEssence extends Attaque {
 
 	public PanneEssence() {
-		super("Panne d'essance");
+		super("Panne d'essence");
 	}
 
 	/*
