@@ -59,6 +59,9 @@ public class EtatJoueur  {
 	public String ditPourquoiPeutPasAvancer() {
 		Carte bataille = this.getBataille();
 		if(bataille instanceof Attaque) {
+			if(this.getLimiteVitesse()) {
+				return "Le joueur ne peut avancer au dessus de 50km/h car il est contré par l'attaque "+bataille;
+			}
 			return "Le joueur ne peut avancer car il est contré par l'attaque "+bataille;
 		}
 		return null;
