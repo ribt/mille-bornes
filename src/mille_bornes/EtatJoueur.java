@@ -170,7 +170,11 @@ public class EtatJoueur  {
 		for(Botte botte : bottes) {
 			txt += botte+" ";
 		}
-		txt += "\nSommet de la pile de bataille : "+pileBataille.pop();
+		if (pileBataille.isEmpty()) {
+			txt += "\nLa pile de bataille est vide";
+		} else {
+			txt += "\nSommet de la pile de bataille : "+pileBataille.pop();
+		}
 		return txt;
 	}
 
