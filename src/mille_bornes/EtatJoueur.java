@@ -187,7 +187,7 @@ public class EtatJoueur  {
 	IllegalStateException - si le joueur a déjà plus de 6 cartes
 	*/
 	public void prendCarte(Carte carte) throws IllegalStateException {
-		if (main.size() == 6) {
+		if (main.size() > 6) {
 			throw new IllegalStateException("Le joueur a déjà 6 cartes en main.");
 		}
 		main.add(carte);
