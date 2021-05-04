@@ -162,11 +162,15 @@ public class EtatJoueur  {
 	une ligne de texte contenant la distance parcourue, la limite de vitesse en cours, les bottes exposées et la carte au sommet de la pile de bataille.
 	*/
 	public String toString() {
-		String txt = km+" km ";
+		String txt = km+" km";
 		if (limiteVitesse) {
-			txt += "(50) ";
+			txt += ", limite à 50 km/h";
 		}
-		// TODO : ajouter les bottes et le sommet de Bataille
+		txt += "\nListe des bottes du joueur :";
+		for(Botte botte : bottes) {
+			txt += botte+" ";
+		}
+		txt += "\nSommet de la pile de bataille : "+pileBataille.pop();
 		return txt;
 	}
 
