@@ -99,7 +99,7 @@ public class EtatJoueur  {
 		if (pileBataille.isEmpty()) {
 			return null;
 		}
-		return pileBataille.pop();
+		return pileBataille.peek();
 	}
 
 	/*
@@ -181,7 +181,7 @@ public class EtatJoueur  {
 		if (pileBataille.isEmpty()) {
 			txt += "\nLa pile de bataille est vide";
 		} else {
-			txt += "\nSommet de la pile de bataille : "+pileBataille.pop();
+			txt += "\nSommet de la pile de bataille : "+pileBataille.peek();
 		}
 		return txt;
 	}
