@@ -188,8 +188,20 @@ public class Jeu  {
 	La liste des joueurs ayant le plus de kilomètres. ( les gagnants ex-aequo )
 	*/
 	public List<Joueur> getGagnant() {
-		// TODO
-		return null;
+		ArrayList<Joueur> rep = new ArrayList<Joueur>();
+		int max = 0;
+		for (Joueur j: joueurs) {
+			if (j.getKm() > max) {
+				max = j.getKm();
+			}
+		}
+		
+		for (Joueur j: joueurs) {
+			if (j.getKm() == max) {
+				rep.add(j);
+			}
+		}
+		return rep;
 	}
 
 	/*

@@ -18,7 +18,6 @@ public class EtatJoueur  {
 
 	EtatJoueur(Joueur joueur) {
 		this.joueur = joueur;
-		// TODO
 		this.pileBataille = new Stack<Bataille>();
 		this.main = new ArrayList<Carte>();
 		this.bottes = new ArrayList<Botte>();
