@@ -38,6 +38,9 @@ public abstract class Attaque extends Bataille {
 		if (joueur.getBataille() == null) {
 			throw new IllegalStateException("Impossible de poser une attaque sur un joueur qui n'a pas encore posé de Feu Vert.");
 		}
-		// TODO
+		if (joueur.getBataille() instanceof Attaque) {
+			throw new IllegalStateException("Ce joueur est déjà bloqué par une attaque.");
+		}
+		joueur.setBataille(this);
 	}
 }

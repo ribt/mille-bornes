@@ -229,6 +229,7 @@ public class EtatJoueur  {
 			throw new IllegalStateException("La carte est une attaque donc il faut spécifier un adversaire.");
 		}
 		carte.appliqueEffet(jeu, this);
+		main.remove(numero);
 	}
 
 	/*
@@ -247,7 +248,8 @@ public class EtatJoueur  {
 		if (!(carte instanceof Attaque)) {
 			throw new IllegalStateException("La carte n'est pas une attaque donc il ne faut pas spécifier d'adversaire.");
 		}
-		carte.appliqueEffet(jeu, adversaire.getEtat());
+		adversaire.attaque(jeu, (Attaque)carte);
+		main.remove(numero);
 	}
 
 	/*

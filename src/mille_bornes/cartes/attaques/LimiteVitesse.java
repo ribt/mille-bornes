@@ -45,8 +45,8 @@ public class LimiteVitesse extends Attaque {
 	IllegalStateException - si la carte n'est pas applicable
 	*/
 	public void appliqueEffet(Jeu jeu, EtatJoueur joueur) throws IllegalStateException {
-		if(joueur.getLimiteVitesse()) {
-			throw new IllegalStateException("La vitesse est déjà limité");
+		if (joueur.getLimiteVitesse()) {
+			throw new IllegalStateException("La vitesse de ce joueur est déjà limitée");
 		}
 		else {
 			joueur.setLimiteVitesse(true);

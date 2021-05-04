@@ -216,9 +216,4 @@ public class Joueur  {
 	public List<Botte> getBottes() {
 		return etat.getBottes();
 	}
-	
-	// TODO méthode ajoutée pour que EtatJoueur puisque trouver un état depuis l'adversaire passé
-	public EtatJoueur getEtat() {
-		return etat;
-	}
 }
