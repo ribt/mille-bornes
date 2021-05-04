@@ -41,6 +41,11 @@ public class FeuVert extends Parade {
 		if (joueur.getBataille() == null) { // la pile est vide, il faut un FeuVert pour commencer
 			joueur.setBataille(this);
 		}
-		// TODO
+		else if (joueur.getBataille() instanceof FeuRouge) {
+			joueur.setBataille(this);
+		}
+		else {
+			throw new IllegalStateException("Vous ne pouvez pas jouer un Feu Vert dans cette situation.");
+		}
 	}
 }
