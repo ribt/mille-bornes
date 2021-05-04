@@ -82,8 +82,24 @@ public class Joueur  {
 	IllegalStateException - si le joueur décide d'annuler son attaque
 	*/
 	public Joueur choisitAdversaire(Carte carte) throws IllegalStateException {
-		// TODO
-		return null;
+		Joueur j = getProchainJoueur();
+		int i = 0;
+		ArrayList<Joueur> adversaires = new ArrayList<Joueur>();
+		
+		System.out.println("Choisissez l'adversaire à attaquer :");
+		while (j != this) {
+			System.out.println((i+1)+" : "+j.nom);
+			adversaires.add(j);
+			i++;
+			j = j.getProchainJoueur();
+		}
+		
+		int choix = input.nextInt();
+		while (choix <= 0 || choix > i) {
+			System.out.println("Choisissez un nombre dans la liste ci-dessus.");
+			choix = input.nextInt();
+		}
+		return adversaires.get(choix-1);
 	}
 
 	/*
@@ -199,5 +215,10 @@ public class Joueur  {
 	*/
 	public List<Botte> getBottes() {
 		return etat.getBottes();
+	}
+	
+	// TODO méthode ajoutée pour que EtatJoueur puisque trouver un état depuis l'adversaire passé
+	public EtatJoueur getEtat() {
+		return etat;
 	}
 }

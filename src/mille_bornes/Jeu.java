@@ -63,6 +63,7 @@ public class Jeu  {
 			for (int j = 0; j < 6; j++) {
 				joueurs.get(i).prendCarte(sabot.prend());
 			}
+			joueurs.get(i).setProchainJoueur(joueurs.get((i+1)%joueurs.size()));
 		}
 		
 		prochainJoueur = joueurs.get(0);
@@ -127,7 +128,7 @@ public class Jeu  {
 					throw new Exception("Choix invalide");
 				}
 			} catch (Exception e) {
-				System.out.println("Erreur : "+e.getMessage());
+				System.out.println("Erreur : "+e);
 			}
 		}
 
@@ -140,6 +141,7 @@ public class Jeu  {
 	public void activeProchainJoueurEtTireCarte() {
 		if (!estPartieFinie()) {
 			this.joueurActif = prochainJoueur;
+			this.prochainJoueur = joueurActif.getProchainJoueur();
 			joueurActif.prendCarte(pioche());
 		}
 	}
@@ -148,6 +150,9 @@ public class Jeu  {
 	Teste si la partie est finie.
 	*/
 	public boolean estPartieFinie() {
+		if (sabot.estVide()) {
+			return true;
+		}
 		for (Joueur j: joueurs) {
 			if (j.getKm() == 1000) {
 				return true;

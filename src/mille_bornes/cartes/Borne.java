@@ -22,7 +22,7 @@ public class Borne extends Carte {
 	Throws:
 	IllegalStateException - si le joueur est immobilisé
 	*/
-	public void appliqueEffet(Jeu jeu, EtatJoueur joueur) throws IllegalStateException {
-		// TODO
+	public void appliqueEffet(Jeu jeu, EtatJoueur joueur) throws IllegalStateException {	
+		joueur.ajouteKm(km);
 	}
 }

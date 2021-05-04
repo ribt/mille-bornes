@@ -35,6 +35,9 @@ public abstract class Attaque extends Bataille {
 	IllegalStateException - si la carte n'est pas applicable
 	*/
 	public void appliqueEffet(Jeu jeu, EtatJoueur joueur) throws IllegalStateException {
+		if (joueur.getBataille() == null) {
+			throw new IllegalStateException("Impossible de poser une attaque sur un joueur qui n'a pas encore posé de Feu Vert.");
+		}
 		// TODO
 	}
 }

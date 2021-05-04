@@ -6,6 +6,7 @@ import mille_bornes.cartes.Attaque;
 import mille_bornes.cartes.Bataille;
 import mille_bornes.cartes.Botte;
 import mille_bornes.cartes.Carte;
+import mille_bornes.cartes.attaques.LimiteVitesse;
 
 public class EtatJoueur  {
 	private final Joueur joueur;
@@ -42,10 +43,14 @@ public class EtatJoueur  {
 	*/
 	public void ajouteKm(int km) throws IllegalStateException {
 		if (limiteVitesse && km > 50) {
-			throw new IllegalStateException("Le joueur est limité à 50 km/h.");
+			throw new IllegalStateException("Vous êtes limité à 50 km/h.");
 		}
 		if (this.km + km > 1000) {
 			throw new IllegalStateException("Il n'est pas possible de dépasser les 1000 km.");
+		}
+		String msgErreur = ditPourquoiPeutPasAvancer();
+		if (msgErreur != null) {
+			throw new IllegalStateException(msgErreur);
 		}
 		this.km += km;
 	}
@@ -61,11 +66,8 @@ public class EtatJoueur  {
 		if (bataille == null) {
 			return "Vous ne pouvez pas avancer car il faut un Feu Vert pour commencer.";
 		}
-		if (bataille instanceof Attaque) {
-			if (this.getLimiteVitesse()) {
-				return "Le joueur ne peut avancer au dessus de 50km/h car il est contré par l'attaque "+bataille;
-			}
-			return "Le joueur ne peut avancer car il est contré par l'attaque "+bataille;
+		if (bataille instanceof Attaque && !(bataille instanceof LimiteVitesse)) {
+			return "Vous ne pouvez pas avancer car vous êtes bloqué par l'attaque "+bataille;
 		}
 		return null;
 	}
@@ -94,6 +96,9 @@ public class EtatJoueur  {
 	la carte au sommet de la pile de bataille, ou null si elle est vide.
 	*/
 	public Bataille getBataille() {
+		if (pileBataille.isEmpty()) {
+			return null;
+		}
 		return pileBataille.pop();
 	}
 
@@ -224,7 +229,6 @@ public class EtatJoueur  {
 			throw new IllegalStateException("La carte est une attaque donc il faut spécifier un adversaire.");
 		}
 		carte.appliqueEffet(jeu, this);
-		defausseCarte(jeu, numero);
 	}
 
 	/*
@@ -243,6 +247,7 @@ public class EtatJoueur  {
 		if (!(carte instanceof Attaque)) {
 			throw new IllegalStateException("La carte n'est pas une attaque donc il ne faut pas spécifier d'adversaire.");
 		}
+		carte.appliqueEffet(jeu, adversaire.getEtat());
 	}
 
 	/*
