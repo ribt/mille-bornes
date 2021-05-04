@@ -62,8 +62,13 @@ public class Joueur  {
 	un entier entre -7 et +7 permettant de défausser (<0) ou de jouer (>0) la carte correspondante
 	*/
 	public int choisitCarte() {
-		// TODO
-		return 0;
+		List<Carte> main = getMain();
+		System.out.println("Choisissez la carte à jouer :");
+		for (int i = 0; i < main.size(); i++) {
+			System.out.println((i+1)+" : "+main.get(i));
+		}
+
+		return input.nextInt();
 	}
 
 	/*
@@ -104,7 +109,12 @@ public class Joueur  {
 	IllegalStateException - si la carte n'est pas jouable
 	*/
 	public void joueCarte(Jeu jeu, int numero) throws IllegalStateException {
-		etat.joueCarte(jeu, numero);
+		Carte carte = getMain().get(numero);
+		if (carte instanceof Attaque) {
+			etat.joueCarte(jeu, numero, choisitAdversaire(carte));
+		} else {
+			etat.joueCarte(jeu, numero);
+		}
 	}
 
 	/*
