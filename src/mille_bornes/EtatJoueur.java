@@ -171,20 +171,16 @@ public class EtatJoueur  {
 	public String toString() {
 		String txt = km+" km";
 		if (limiteVitesse) {
-			txt += ", limité à 50 km/h";
+			txt += "\nlimité à 50 km/h";
 		}
-		if (bottes.isEmpty()) {
-			txt += "\nAucune botte";
-		} else {
-			txt += "\nListe des bottes :";
+		if (!bottes.isEmpty()) {
+			txt += "\n";
 			for(Botte botte : bottes) {
-				txt += botte+" ";
+				txt += botte+", ";
 			}
 		}
-		if (pileBataille.isEmpty()) {
-			txt += "\nLa pile de bataille est vide";
-		} else {
-			txt += "\nSommet de la pile de bataille : "+pileBataille.peek();
+		if (!pileBataille.isEmpty()) {
+			txt += "\n"+pileBataille.peek();
 		}
 		return txt;
 	}

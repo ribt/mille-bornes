@@ -94,8 +94,11 @@ public class Jeu  {
 			}
 			txt += j.toString() + "\n\n";
 		}
-		txt += "Pioche : "+this.getNbCartesSabot()+" cartes; ";
-		txt += "Défausse : "+this.defausse.getNbCartes()+" cartes";
+		txt += this.getNbCartesSabot()+" carte";
+		if (this.getNbCartesSabot() > 1) txt += "s";
+		txt += " dans la pioche et "+this.defausse.getNbCartes()+" carte";
+		if (this.defausse.getNbCartes() > 1) txt += "s";
+		txt += " dans la défausse";
 		return txt;
 	}
 
