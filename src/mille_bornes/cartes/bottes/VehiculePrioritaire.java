@@ -44,6 +44,5 @@ public class VehiculePrioritaire extends Botte {
 		}
 		joueur.setLimiteVitesse(false);
 		jeu.setProchainJoueur(jeu.getJoueurActif());
-		jeu.activeProchainJoueurEtTireCarte();
 	}
 }

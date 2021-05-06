@@ -42,6 +42,5 @@ public class Increvable extends Botte {
 			joueur.defausseBataille(jeu);
 		}
 		jeu.setProchainJoueur(jeu.getJoueurActif());
-		jeu.activeProchainJoueurEtTireCarte();
 	}
 }
