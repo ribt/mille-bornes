@@ -33,7 +33,7 @@ public class Bot extends Joueur {
 		for (int i = 0; i < rand.nextInt()%4 + 1; i++) {
 			choix = choix.getProchainJoueur();
 		}
-		System.out.println("sur "+choix);
+		System.out.println("sur "+choix.nom);
 		return choix;
 	}
 }

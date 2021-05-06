@@ -42,7 +42,7 @@ public class FinDeLimite extends Parade {
 			joueur.setLimiteVitesse(false);
 		}
 		else {
-			throw new IllegalStateException("La vitesse du joueur n'est pas limitée.");
+			throw new IllegalStateException("Votre vitesse n'est pas limitée.");
 		}
 	}
 }

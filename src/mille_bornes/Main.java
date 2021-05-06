@@ -5,7 +5,7 @@ import java.util.List;
 public class Main  {
 
 	public static void main(String[] args) {
-		Jeu jeu = new Jeu(new Joueur("humain"), new Bot());
+		Jeu jeu = new Jeu(new Bot(), new Bot());
 		jeu.prepareJeu();
 		
 		while(!(jeu.estPartieFinie())) {
