@@ -67,9 +67,16 @@ public class Joueur  {
 		for (int i = 0; i < main.size(); i++) {
 			System.out.println((i+1)+" : "+main.get(i));
 		}
-		System.out.println("Entrez -n pour défausser la carte n.");
-		System.out.print("> ");
-		return input.nextInt();
+		System.out.println("(Entrez -n pour défausser la carte n.)");
+		while (true) {
+			try {
+				System.out.print("> ");
+				return input.nextInt();
+			} catch (InputMismatchException e) {
+				System.out.println("Merci d'entrer un nombre valide...");
+				input.nextLine();
+			}
+		}
 	}
 
 	/*
@@ -94,13 +101,19 @@ public class Joueur  {
 			i++;
 			j = j.getProchainJoueur();
 		}
-		
-		System.out.print("> ");
-		int choix = input.nextInt();
+
+		int choix = -1;
 		while (choix <= 0 || choix > i) {
-			System.out.println("Choisissez un nombre dans la liste ci-dessus.");
-			System.out.print("> ");
-			choix = input.nextInt();
+			try {
+				System.out.print("> ");
+				choix = input.nextInt();
+				if (choix <= 0 || choix > i) {
+					System.out.println("Choisissez un nombre de la liste ci-dessus.");
+				}
+			} catch (InputMismatchException e) {
+				System.out.println("Merci d'entrer un nombre valide...");
+				input.nextLine();
+			}
 		}
 		return adversaires.get(choix-1);
 	}
