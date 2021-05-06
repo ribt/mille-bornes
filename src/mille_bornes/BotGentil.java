@@ -5,6 +5,7 @@ import java.util.List;
 import mille_bornes.cartes.*;
 import mille_bornes.cartes.bottes.VehiculePrioritaire;
 import mille_bornes.cartes.parades.FeuVert;
+import mille_bornes.cartes.parades.FinDeLimite;
 
 public class BotGentil extends Bot {
 
@@ -22,6 +23,8 @@ public class BotGentil extends Bot {
 			if (carte instanceof Botte)
 				return i+1;
 			if (getBataille() == null && !getBottes().contains(VehiculePrioritaire.unique) && carte instanceof FeuVert)
+				return i+1;
+			if (getLimiteVitesse() && carte instanceof FinDeLimite)
 				return i+1;
 			if (getBataille() instanceof Attaque && carte instanceof Parade && ((Parade) carte).contre((Attaque) getBataille()))
 				return i+1;
