@@ -23,6 +23,12 @@ public class TasDeCartes {
 	Ajoute les 110 cartes du Mille-Bornes au tas de cartes.
 	*/
 	private void creeLesCartes() {
+		// les bottes :
+		cartes.add(VehiculePrioritaire.unique);
+		cartes.add(Citerne.unique);
+		cartes.add(Increvable.unique);
+		cartes.add(AsDuVolant.unique);
+				
 		// les bornes kilométriques :
 		for (int i = 0; i < 10; i++) {
 			cartes.add(new Borne(25));
@@ -58,14 +64,7 @@ public class TasDeCartes {
 			cartes.add(new Essence());
 			cartes.add(new RoueDeSecours());
 			cartes.add(new Reparations());
-		}
-		
-		// les bottes :
-		cartes.add(VehiculePrioritaire.unique);
-		cartes.add(Citerne.unique);
-		cartes.add(Increvable.unique);
-		cartes.add(AsDuVolant.unique);
-		
+		}		
 	}
 
 	/*

@@ -27,7 +27,7 @@ public abstract class Parade extends Bataille {
 		if (joueur.getBataille() instanceof Attaque && this.contre((Attaque)joueur.getBataille())) {
 			joueur.setBataille(this);
 		} else {
-			throw new IllegalStateException("Vous ne pouvez pas jouer cette carte...");
+			throw new IllegalStateException("Vous ne pouvez pas jouer cette carte.");
 		}
 	}
 }

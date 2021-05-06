@@ -2,6 +2,7 @@ package mille_bornes.cartes;
 
 import mille_bornes.EtatJoueur;
 import mille_bornes.Jeu;
+import mille_bornes.cartes.bottes.VehiculePrioritaire;
 
 public abstract class Attaque extends Bataille {
 
@@ -35,7 +36,7 @@ public abstract class Attaque extends Bataille {
 	IllegalStateException - si la carte n'est pas applicable
 	*/
 	public void appliqueEffet(Jeu jeu, EtatJoueur joueur) throws IllegalStateException {
-		if (joueur.getBataille() == null) {
+		if (joueur.getBataille() == null && !joueur.getBottes().contains(VehiculePrioritaire.unique)) {
 			throw new IllegalStateException("Impossible de poser une attaque sur un joueur qui n'a pas encore posé de Feu Vert.");
 		}
 		if (joueur.getBataille() instanceof Attaque) {
