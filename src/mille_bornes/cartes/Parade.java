@@ -2,6 +2,7 @@ package mille_bornes.cartes;
 
 import mille_bornes.EtatJoueur;
 import mille_bornes.Jeu;
+import mille_bornes.cartes.bottes.VehiculePrioritaire;
 
 public abstract class Parade extends Bataille {
 
@@ -21,7 +22,7 @@ public abstract class Parade extends Bataille {
 	IllegalStateException - si la carte n'est pas applicable
 	*/
 	public void appliqueEffet(Jeu jeu, EtatJoueur joueur) throws IllegalStateException {
-		if (joueur.getBataille() == null) {
+		if (joueur.getBataille() == null && !joueur.getBottes().contains(VehiculePrioritaire.unique)) {
 			throw new IllegalStateException("Il faut commencer par un feu vert");
 		}
 		if (joueur.getBataille() instanceof Attaque && this.contre((Attaque)joueur.getBataille())) {

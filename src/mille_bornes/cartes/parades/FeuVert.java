@@ -5,6 +5,7 @@ import mille_bornes.Jeu;
 import mille_bornes.cartes.Attaque;
 import mille_bornes.cartes.Parade;
 import mille_bornes.cartes.attaques.FeuRouge;
+import mille_bornes.cartes.bottes.VehiculePrioritaire;
 
 public class FeuVert extends Parade {
 
@@ -39,6 +40,9 @@ public class FeuVert extends Parade {
 	*/
 	public void appliqueEffet(Jeu jeu, EtatJoueur joueur) throws IllegalStateException {
 		if (joueur.getBataille() == null) { // la pile est vide, il faut un FeuVert pour commencer
+			if (joueur.getBottes().contains(VehiculePrioritaire.unique)) {
+				throw new IllegalStateException("Pas besoin de commencer par un feu vert si vous êtes véhicule prioritaire !");
+			}
 			joueur.setBataille(this);
 		}
 		else if (joueur.getBataille() instanceof FeuRouge) {
