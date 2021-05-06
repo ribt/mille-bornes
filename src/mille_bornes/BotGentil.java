@@ -31,12 +31,14 @@ public class BotGentil extends Bot {
 			}
 		}
 		
-		if (ditPourquoiPeutPasAvancer() == null) {
+		if (ditPourquoiPeutPasAvancer() == null && borneMax.km > 0) {
 			return main.indexOf(borneMax) + 1;
 		}
 		
 		for (int i=0; i < main.size(); i++) {
 			carte = main.get(i);
+			if (carte instanceof Borne && getKm()+((Borne) carte).km > 1000)
+				return -i-1;
 			if (carte instanceof Parade || carte instanceof Attaque)
 				return -i-1;
 			if (carte instanceof Borne && ((Borne) carte).km <= 50 && !getLimiteVitesse())
