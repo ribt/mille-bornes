@@ -171,16 +171,15 @@ public class EtatJoueur  {
 	public String toString() {
 		String txt = km+" km";
 		if (limiteVitesse) {
-			txt += "\nlimité à 50 km/h";
+			txt += ", limité à 50 km/h";
 		}
 		if (!bottes.isEmpty()) {
-			txt += "\n";
 			for(Botte botte : bottes) {
-				txt += botte+", ";
+				txt += ", "+botte;
 			}
 		}
 		if (!pileBataille.isEmpty()) {
-			txt += "\n"+pileBataille.peek();
+			txt += ", "+pileBataille.peek();
 		}
 		return txt;
 	}
