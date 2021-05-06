@@ -7,7 +7,7 @@ import mille_bornes.cartes.*;
 import mille_bornes.cartes.attaques.*;
 import mille_bornes.cartes.parades.*;
 import java.util.Collections;
-// import mille_bornes.cartes.bottes.*;
+import mille_bornes.cartes.bottes.*;
 
 public class TasDeCartes {
 	private final List<Carte> cartes;
@@ -60,11 +60,11 @@ public class TasDeCartes {
 			cartes.add(new Reparations());
 		}
 		
-//		// les bottes :
-//		cartes.add(new VehiculePrioritaire());
-//		cartes.add(new Citerne());
-//		cartes.add(new Increvable());
-//		cartes.add(new AsDuVolant());
+		// les bottes :
+		cartes.add(VehiculePrioritaire.unique);
+		cartes.add(Citerne.unique);
+		cartes.add(Increvable.unique);
+		cartes.add(AsDuVolant.unique);
 		
 	}
 

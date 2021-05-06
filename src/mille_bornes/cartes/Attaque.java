@@ -41,6 +41,11 @@ public abstract class Attaque extends Bataille {
 		if (joueur.getBataille() instanceof Attaque) {
 			throw new IllegalStateException("Ce joueur est déjà bloqué par une attaque.");
 		}
+		for (Botte b: joueur.getBottes()) {
+			if (b.contre(this)) {
+				throw new IllegalStateException("Impossible d'appliquer l'attaque "+this+" sur ce joueur car il est "+b+".");
+			}
+		}
 		joueur.setBataille(this);
 	}
 }

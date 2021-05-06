@@ -37,7 +37,10 @@ public class Increvable extends Botte {
 	joueur - le joueur ciblé
 	*/
 	public void appliqueEffet(Jeu jeu, EtatJoueur joueur) {
-		joueur.addBotte(unique);
+		joueur.addBotte(this);
+		if (joueur.getBataille() instanceof Attaque && this.contre((Attaque)joueur.getBataille())) {
+			joueur.defausseBataille(jeu);
+		}
 		jeu.setProchainJoueur(jeu.getJoueurActif());
 		jeu.activeProchainJoueurEtTireCarte();
 	}
