@@ -4,36 +4,34 @@ import java.util.Random;
 
 import mille_bornes.cartes.Carte;
 
-public class Bot extends Joueur {
-	private static int compteur = 1;
-	private Random rand = new Random();
+public abstract class Bot extends Joueur {
+	protected Random rand = new Random();
 
-	public Bot() {
-		super("Bot "+compteur);
-		compteur++;
+	public Bot(String nom) {
+		super(nom);
 	}
 	
 	@Override
-	public int choisitCarte() {
-//		int r = rand.nextInt();
-//		System.out.println(r+" "+r%15+" "+(r%15-7));
-		int choix = rand.nextInt()%8; // entre -7 et 7
-		if (choix == 0)
-			choix = 1;
-		if (choix > 0)
-			System.out.println("\nJe joue "+getMain().get(choix-1));
-		if (choix < 0)
-			System.out.println("\nJe défausse "+getMain().get(-choix-1));
-		return choix;
+	public abstract int choisitCarte();
+	
+	@Override
+	public abstract Joueur choisitAdversaire(Carte carte);
+	
+	@Override
+	public void joueCarte(Jeu jeu, int numero) {
+		System.out.println("Je joue "+getMain().get(numero));
+		super.joueCarte(jeu, numero);
 	}
 	
 	@Override
-	public Joueur choisitAdversaire(Carte carte) {
-		Joueur choix = this;
-		for (int i = 0; i < rand.nextInt()%4 + 1; i++) {
-			choix = choix.getProchainJoueur();
-		}
-		System.out.println("sur "+choix.nom);
-		return choix;
+	public void joueCarte(Jeu jeu, int numero, Joueur adversaire) {
+		System.out.println("Je joue "+getMain().get(numero)+" sur "+adversaire.nom);
+		super.joueCarte(jeu, numero, adversaire);
+	}
+	
+	@Override
+	public void defausseCarte(Jeu jeu, int numero) {
+		System.out.println("Je défausse "+getMain().get(numero));
+		super.defausseCarte(jeu, numero);
 	}
 }
