@@ -40,10 +40,9 @@ public class FinDeLimite extends Parade {
 	public void appliqueEffet(Jeu jeu, EtatJoueur joueur) throws IllegalStateException {
 		if(joueur.getLimiteVitesse()) {
 			joueur.setLimiteVitesse(false);
-			joueur.setBataille(this);
 		}
 		else {
-			throw new IllegalStateException("La vitesse du joueur n'est pas limité");
+			throw new IllegalStateException("La vitesse du joueur n'est pas limitée.");
 		}
 	}
 }
