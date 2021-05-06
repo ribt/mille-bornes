@@ -19,19 +19,19 @@ public abstract class Bot extends Joueur {
 	
 	@Override
 	public void joueCarte(Jeu jeu, int numero) {
-		System.out.println("Je joue "+getMain().get(numero));
+		System.out.println("\nJe joue "+getMain().get(numero)+".");
 		super.joueCarte(jeu, numero);
 	}
 	
 	@Override
 	public void joueCarte(Jeu jeu, int numero, Joueur adversaire) {
-		System.out.println("Je joue "+getMain().get(numero)+" sur "+adversaire.nom);
+		System.out.println("\nJe joue "+getMain().get(numero)+" sur "+adversaire.nom+".");
 		super.joueCarte(jeu, numero, adversaire);
 	}
 	
 	@Override
 	public void defausseCarte(Jeu jeu, int numero) {
-		System.out.println("Je défausse "+getMain().get(numero));
+		System.out.println("\nJe défausse "+getMain().get(numero)+".");
 		super.defausseCarte(jeu, numero);
 	}
 }
