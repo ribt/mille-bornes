@@ -42,6 +42,7 @@ public class VehiculePrioritaire extends Botte {
 		if (joueur.getBataille() instanceof Attaque && this.contre((Attaque)joueur.getBataille())) {
 			joueur.defausseBataille(jeu);
 		}
+		joueur.setLimiteVitesse(false);
 		jeu.setProchainJoueur(jeu.getJoueurActif());
 		jeu.activeProchainJoueurEtTireCarte();
 	}
