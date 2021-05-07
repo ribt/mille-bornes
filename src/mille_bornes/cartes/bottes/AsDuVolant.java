@@ -4,7 +4,6 @@ import mille_bornes.EtatJoueur;
 import mille_bornes.Jeu;
 import mille_bornes.cartes.Attaque;
 import mille_bornes.cartes.Botte;
-import mille_bornes.cartes.attaques.Accident;
 
 public class AsDuVolant extends Botte {
 	public static final AsDuVolant unique = new AsDuVolant();
@@ -23,7 +22,7 @@ public class AsDuVolant extends Botte {
 	carte - l'attaque à contrer
 	*/
 	public boolean contre(Attaque carte) {
-		return carte instanceof Accident;
+		return carte.estContreeParAsDuVolant();
 	}
 
 	/*

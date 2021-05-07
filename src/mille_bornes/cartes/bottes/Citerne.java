@@ -4,7 +4,6 @@ import mille_bornes.EtatJoueur;
 import mille_bornes.Jeu;
 import mille_bornes.cartes.Attaque;
 import mille_bornes.cartes.Botte;
-import mille_bornes.cartes.attaques.PanneEssence;
 
 public class Citerne extends Botte {
 	public static final Citerne unique = new Citerne();
@@ -23,7 +22,7 @@ public class Citerne extends Botte {
 	carte - l'attaque à contrer
 	*/
 	public boolean contre(Attaque carte) {
-		return carte instanceof PanneEssence;
+		return carte.estContreeParCiterne();
 	}
 
 	/*

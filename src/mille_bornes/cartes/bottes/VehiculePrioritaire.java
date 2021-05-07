@@ -4,8 +4,6 @@ import mille_bornes.EtatJoueur;
 import mille_bornes.Jeu;
 import mille_bornes.cartes.Attaque;
 import mille_bornes.cartes.Botte;
-import mille_bornes.cartes.attaques.FeuRouge;
-import mille_bornes.cartes.attaques.LimiteVitesse;
 
 public class VehiculePrioritaire extends Botte {
 	public static final VehiculePrioritaire unique = new VehiculePrioritaire();
@@ -24,7 +22,7 @@ public class VehiculePrioritaire extends Botte {
 	carte - l'attaque à contrer
 	*/
 	public boolean contre(Attaque carte) {
-		return (carte instanceof LimiteVitesse || carte instanceof FeuRouge);
+		return carte.estContreeParVehiculePrioritaire();
 	}
 
 	/*

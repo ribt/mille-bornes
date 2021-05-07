@@ -4,7 +4,6 @@ import mille_bornes.EtatJoueur;
 import mille_bornes.Jeu;
 import mille_bornes.cartes.Attaque;
 import mille_bornes.cartes.Botte;
-import mille_bornes.cartes.attaques.Crevaison;
 
 public class Increvable extends Botte {
 	public static final Increvable unique = new Increvable();
@@ -23,7 +22,7 @@ public class Increvable extends Botte {
 	carte - l'attaque à contrer
 	*/
 	public boolean contre(Attaque carte) {
-		return carte instanceof Crevaison;
+		return carte.estContreeParIncrevable();
 	}
 
 	/*
