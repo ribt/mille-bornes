@@ -14,6 +14,7 @@ public class BotGentil extends Bot {
 		super("Bot gentil");
 	}
 	
+	@Override
 	public int choisitCarte() {
 		List<Carte> main = getMain();
 		Carte carte;
@@ -40,26 +41,34 @@ public class BotGentil extends Bot {
 			return main.indexOf(borneMax) + 1;
 		}
 		
-		for (int i=0; i < main.size(); i++) {
-			carte = main.get(i);
-			if (carte instanceof Borne && getKm()+((Borne) carte).km > 1000)
-				return -i-1;
-			if (carte instanceof Parade || carte instanceof Attaque)
-				return -i-1;
-			if (carte instanceof Borne && ((Borne) carte).km <= 50 && !getLimiteVitesse())
-				return -i-1;
-		}
-		
-		return -1;
+		return -pireCarte();
 	}
 	
-	public Joueur choisitAdversaire(Carte carte) {
-		Joueur choix = this;
-		for (int i = 0; i < rand.nextInt()%4 + 1; i++) {
+	@Override
+	public Joueur choisitAdversaire(Carte carte) { // jamais appelé
+		Joueur choix = this.getProchainJoueur();
+		while (choix == this || rand.nextFloat() > 0.5) {
 			choix = choix.getProchainJoueur();
 		}
 		System.out.println("sur "+choix.nom);
 		return choix;
+	}
+	
+	public int pireCarte() {
+		List<Carte> main = getMain();
+		Carte carte;
+		
+		for (int i=0; i < main.size(); i++) {
+			carte = main.get(i);
+			if (carte instanceof Borne && getKm()+((Borne) carte).km > 1000)
+				return i+1;
+			if (carte instanceof Parade || carte instanceof Attaque)
+				return i+1;
+			if (carte instanceof Borne && ((Borne) carte).km <= 50 && !getLimiteVitesse())
+				return i+1;
+		}
+		
+		return 1;
 	}
 
 }
