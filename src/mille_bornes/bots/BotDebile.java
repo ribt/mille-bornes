@@ -5,8 +5,8 @@ import mille_bornes.cartes.Attaque;
 
 public class BotDebile extends Bot {
 
-	public BotDebile() {
-		super("Bot débile");
+	public BotDebile(String nom) {
+		super(nom);
 	}
 
 	@Override

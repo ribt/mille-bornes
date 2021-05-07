@@ -2,12 +2,10 @@ package mille_bornes;
 
 import java.util.List;
 
-import mille_bornes.bots.*;
-
 public class Main  {
 
 	public static void main(String[] args) {
-		Jeu jeu = new Jeu(new BotDebile(), new BotGentil(), new BotMechant(), new BotMechant());
+		Jeu jeu = Application.getParamJeu();
 		jeu.prepareJeu();
 		
 		while(!(jeu.estPartieFinie())) {

@@ -112,24 +112,4 @@ public class TasDeCartes {
 	public void pose(Carte carte) {
 		cartes.add(0, carte);
 	}
-	
-	/*
-	 * Fonctions pour tester
-	 */
-	
-	public Carte get(int i) {
-		return cartes.get(i);
-	}
-	
-	public String toString() {
-		if (cartes.isEmpty()) {
-			return null;
-		}
-		String str = cartes.get(0).nom + ", ";
-		for(int i = 1; i<cartes.size()-1; i++) {
-			str = str + (cartes.get(i)+", ");
-	    }
-		str = "Contenu du tas de cartes : " + str + (cartes.get(cartes.size()-1));
-		return str;
-	}
 }
