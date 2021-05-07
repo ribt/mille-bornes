@@ -1,7 +1,9 @@
-package mille_bornes;
+package mille_bornes.bots;
 
 import java.util.Random;
 
+import mille_bornes.Jeu;
+import mille_bornes.Joueur;
 import mille_bornes.cartes.Carte;
 
 public abstract class Bot extends Joueur {

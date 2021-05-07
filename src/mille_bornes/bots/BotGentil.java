@@ -1,7 +1,8 @@
-package mille_bornes;
+package mille_bornes.bots;
 
 import java.util.List;
 
+import mille_bornes.Joueur;
 import mille_bornes.cartes.*;
 import mille_bornes.cartes.bottes.VehiculePrioritaire;
 import mille_bornes.cartes.parades.FeuVert;

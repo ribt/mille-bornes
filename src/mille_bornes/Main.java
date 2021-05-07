@@ -2,6 +2,8 @@ package mille_bornes;
 
 import java.util.List;
 
+import mille_bornes.bots.BotGentil;
+
 public class Main  {
 
 	public static void main(String[] args) {
