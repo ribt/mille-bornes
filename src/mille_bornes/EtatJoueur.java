@@ -10,6 +10,7 @@ import mille_bornes.cartes.attaques.LimiteVitesse;
 import mille_bornes.cartes.bottes.VehiculePrioritaire;
 
 public class EtatJoueur  {
+	@SuppressWarnings("unused") // c'est la doc qui demande de passer le joueur ¯\_(ツ)_/¯
 	private final Joueur joueur;
 	private final Stack<Bataille> pileBataille;
 	private final List<Carte> main;
