@@ -4,7 +4,7 @@ import java.util.Random;
 
 import mille_bornes.Jeu;
 import mille_bornes.Joueur;
-import mille_bornes.cartes.Carte;
+import mille_bornes.cartes.Attaque;
 
 public abstract class Bot extends Joueur {
 	protected Random rand = new Random();
@@ -17,7 +17,7 @@ public abstract class Bot extends Joueur {
 	public abstract int choisitCarte();
 	
 	@Override
-	public abstract Joueur choisitAdversaire(Carte carte);
+	public abstract Joueur choisitAdversaire(Attaque carte);
 	
 	@Override
 	public void joueCarte(Jeu jeu, int numero) {

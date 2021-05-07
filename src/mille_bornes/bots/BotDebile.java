@@ -1,7 +1,7 @@
 package mille_bornes.bots;
 
 import mille_bornes.Joueur;
-import mille_bornes.cartes.Carte;
+import mille_bornes.cartes.Attaque;
 
 public class BotDebile extends Bot {
 
@@ -15,7 +15,7 @@ public class BotDebile extends Bot {
 	}
 
 	@Override
-	public Joueur choisitAdversaire(Carte carte) {
+	public Joueur choisitAdversaire(Attaque carte) {
 		Joueur choix = this.getProchainJoueur();
 		while (choix == this || rand.nextFloat() > 0.5) {
 			choix = choix.getProchainJoueur();

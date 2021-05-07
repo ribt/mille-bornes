@@ -89,7 +89,7 @@ public class Joueur  {
 	Throws:
 	IllegalStateException - si le joueur décide d'annuler son attaque
 	*/
-	public Joueur choisitAdversaire(Carte carte) throws IllegalStateException {
+	public Joueur choisitAdversaire(Attaque carte) throws IllegalStateException {
 		Joueur j = getProchainJoueur();
 		int i = 0;
 		ArrayList<Joueur> adversaires = new ArrayList<Joueur>();
@@ -143,7 +143,7 @@ public class Joueur  {
 	public void joueCarte(Jeu jeu, int numero) throws IllegalStateException {
 		Carte carte = getMain().get(numero);
 		if (carte instanceof Attaque) {
-			etat.joueCarte(jeu, numero, choisitAdversaire(carte));
+			etat.joueCarte(jeu, numero, choisitAdversaire((Attaque)carte));
 		} else {
 			etat.joueCarte(jeu, numero);
 		}

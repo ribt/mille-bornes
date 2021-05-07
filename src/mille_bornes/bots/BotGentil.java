@@ -45,7 +45,7 @@ public class BotGentil extends Bot {
 	}
 	
 	@Override
-	public Joueur choisitAdversaire(Carte carte) { // jamais appelé
+	public Joueur choisitAdversaire(Attaque carte) { // jamais appelé
 		Joueur choix = this.getProchainJoueur();
 		while (choix == this || rand.nextFloat() > 0.5) {
 			choix = choix.getProchainJoueur();
