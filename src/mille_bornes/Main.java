@@ -2,19 +2,19 @@ package mille_bornes;
 
 import java.util.List;
 
-import mille_bornes.bots.BotGentil;
+import mille_bornes.bots.*;
 
 public class Main  {
 
 	public static void main(String[] args) {
-		Jeu jeu = new Jeu(new Joueur("Humain"), new BotGentil());
+		Jeu jeu = new Jeu(new BotDebile(), new BotGentil(), new BotMechant(), new BotMechant());
 		jeu.prepareJeu();
 		
 		while(!(jeu.estPartieFinie())) {
 			jeu.joue();
 		}
 		
-		System.out.println("\nLa partie est finie.");
+		System.out.println("La partie est finie.");
 		
 		List<Joueur> gagnants = jeu.getGagnant();
 		if (gagnants.size() == 1) {

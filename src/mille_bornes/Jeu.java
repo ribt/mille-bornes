@@ -118,7 +118,6 @@ public class Jeu  {
 		activeProchainJoueurEtTireCarte();
 //		System.out.print("\033[H\033[2J");  
 //	    System.out.flush();
-		System.out.print("\n------------------------------------------------------------------------------\n");
 		System.out.println(this);
 		int succes = 0;
 		while (succes == 0) {
@@ -137,6 +136,8 @@ public class Jeu  {
 				System.out.println("Erreur : "+e.getMessage());
 			}
 		}
+		
+		System.out.print("----------------------------------- fin de tour -----------------------------------\n\n");
 
 		return estPartieFinie();
 	}
