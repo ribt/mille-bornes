@@ -23,7 +23,7 @@ public class FeuVert extends Parade {
 	carte - l'attaque à contrer
 	*/
 	public boolean contre(Attaque carte) {
-		return carte instanceof FeuRouge;
+		return carte.estContreeParFeuVert();
 	}
 
 	/*

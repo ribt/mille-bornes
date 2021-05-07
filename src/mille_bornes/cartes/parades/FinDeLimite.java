@@ -4,7 +4,6 @@ import mille_bornes.EtatJoueur;
 import mille_bornes.Jeu;
 import mille_bornes.cartes.Attaque;
 import mille_bornes.cartes.Parade;
-import mille_bornes.cartes.attaques.LimiteVitesse;
 
 public class FinDeLimite extends Parade {
 
@@ -22,7 +21,7 @@ public class FinDeLimite extends Parade {
 	carte - l'attaque à contrer
 	*/
 	public boolean contre(Attaque carte) {
-		return carte instanceof LimiteVitesse;
+		return carte.estContreeParFinDeLimite();
 	}
 
 	/*

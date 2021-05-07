@@ -2,7 +2,6 @@ package mille_bornes.cartes.parades;
 
 import mille_bornes.cartes.Attaque;
 import mille_bornes.cartes.Parade;
-import mille_bornes.cartes.attaques.PanneEssence;
 
 public class Essence extends Parade {
 
@@ -20,6 +19,6 @@ public class Essence extends Parade {
 	carte - l'attaque à contrer
 	*/
 	public boolean contre(Attaque carte) {
-		return (carte instanceof PanneEssence);
+		return carte.estContreeParEssence();
 	}
 }

@@ -2,7 +2,6 @@ package mille_bornes.cartes.parades;
 
 import mille_bornes.cartes.Attaque;
 import mille_bornes.cartes.Parade;
-import mille_bornes.cartes.attaques.Crevaison;
 
 public class RoueDeSecours extends Parade {
 
@@ -20,6 +19,6 @@ public class RoueDeSecours extends Parade {
 	carte - l'attaque à contrer
 	*/
 	public boolean contre(Attaque carte) {
-		return carte instanceof Crevaison;
+		return carte.estContreeParRoueDeSecours();
 	}
 }
