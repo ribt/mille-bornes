@@ -6,9 +6,9 @@ Ce jeu de 1000 bornes a été créé dans le cadre de notre DUT informatique. Il
 - La méthode `appliqueEffet` de la classe Bataille a été passée en `abstract` car tous ses descendants l'*overrident*.
 - Une classe Application a été créée pour alléger la classe Main.
 
+Remarque : les commentaires précédents chaque méthode ont été générés depuis la Javadoc grâce à [un outil créé pour l'occasion](https://github.com/ribt/javadoc-reverse).
 
-
-### Les bots
+## Les bots
 
 Un package `bot` a été créé. Il contient une classe abstraite Bot qui hérite de Joueur et trois classes correspondant à des niveaux de difficulté différents :
 
@@ -16,6 +16,6 @@ Un package `bot` a été créé. Il contient une classe abstraite Bot qui hérit
 - BotGentil : joue sa borne maximale ou la bonne parade s'il est bloqué
 - BotMechant : joue comme BotGentil mais pose ses attaques sur le joueur avec le plus de kilomètres
 
+## Utilisation
 
-
-Remarque : les commentaires précédents chaque méthode ont été générés depuis la Javadoc grâce à [un outil créé pour l'occasion](https://github.com/ribt/javadoc-reverse).
+Compilez la classe Main du package mille_bornes ou exécutez le `.jar`. Le jeu se joue dans un terminal. Au début de la partie, le programme demande le nombre de joueurs et leurs noms, le nombre de bots et leurs niveaux. (Il est possible de choisir de ne faire jouer que des bots.)
