@@ -15,7 +15,7 @@ public class Joueur  {
 
 	public Joueur(String nom) {
 		this.nom = nom;
-		this.etat = new EtatJoueur(this);
+		this.etat = new EtatJoueur();
 		this.input = new Scanner(System.in);
 	}
 
