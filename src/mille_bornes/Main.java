@@ -7,6 +7,8 @@ public class Main  {
 	public static void main(String[] args) {
 		Jeu jeu = Application.getParamJeu();
 		
+		System.out.println("\nC'est parti !\n");
+		
 		jeu.prepareJeu();
 		
 		while(!(jeu.estPartieFinie())) {
