@@ -8,16 +8,15 @@ import mille_bornes.bots.*;
 
 public class Application {
 	private Scanner sc;
-	private int nombreJoueurs;
-	private int nombreBots;
-	private int difficulteBot;
 	private Jeu jeu;
+	private int nombreJoueurs;
+	private int nombreBots;	
 	
 	public Application() {
-		sc = new Scanner(System.in);
-		nombreJoueurs = 0;
-		nombreBots = -1;
-		jeu = new Jeu();
+		this.sc = new Scanner(System.in);
+		this.jeu = new Jeu();
+		this.nombreJoueurs = 0;
+		this.nombreBots = -1;
 	}
 	
 	public void initialiserPartie() {				
@@ -29,9 +28,9 @@ public class Application {
 		}
 		
 		while (nombreBots < 0 || nombreBots > nombreJoueurs) {
-			nombreBots = demandeInt("Combien de bot voulez-vous ? Il peut en avoir jusqu'à "+nombreJoueurs+".\n> ");
+			nombreBots = demandeInt("Combien de bot(s) voulez-vous ? Il peut y en avoir jusqu'à "+nombreJoueurs+".\n> ");
 			if (nombreBots < 0 || nombreBots > nombreJoueurs) {
-				System.out.println("Il ne peut y avoir qu'entre 0 et "+nombreJoueurs+" bots.");
+				System.out.println("Il ne peut y en avoir qu'entre 0 et "+nombreJoueurs+" bots.");
 			}
 		}
 		
@@ -41,31 +40,35 @@ public class Application {
 		} else {
 			System.out.println(".");
 		}
+	}
 		
+	public void configurerBots() {
+		int difficulteBot;
 		for (int i = 0; i < nombreBots; i++) {
 			difficulteBot = 0;
 			while (difficulteBot < 1 || difficulteBot > 3) {
-				difficulteBot = demandeInt("Quelle difficulté voulez-vous pour le bot n°"+(i+1)+" ?\nIl y a 3 niveaux entre 1 et 3.\n> ");
-				if(difficulteBot < 1 || difficulteBot > 3) {
+				difficulteBot = demandeInt("Quelle difficulté voulez-vous pour le bot n°"+(i+1)+" ?\n(un chiffre entre 1 et 3)\n> ");
+				if (difficulteBot < 1 || difficulteBot > 3) {
 					System.out.print("Erreur : Il n'y a que 3 niveaux de difficulté.");
 				}
 				else {
-					System.out.print("Quel nom voulez-vous lui donner ?\n> ");
 					switch (difficulteBot) {
 					case 1:
-						jeu.ajouteJoueurs(new BotDebile(sc.next()));
+						jeu.ajouteJoueurs(new BotDebile());
 						break;
 					case 2:
-						jeu.ajouteJoueurs(new BotGentil(sc.next()));
+						jeu.ajouteJoueurs(new BotGentil());
 						break;
 					case 3:
-						jeu.ajouteJoueurs(new BotMechant(sc.next()));
+						jeu.ajouteJoueurs(new BotMechant());
 						break;
 					}
 				}
 			}
 		}
-		
+	}
+	
+	public void configurerJoueurs() {
 		for (int i = 0; i < (nombreJoueurs - nombreBots); i++) {
 			System.out.print("Quelle nom voulez-vous pour le joueur n°"+(i+1)+" ?\n> ");
 			jeu.ajouteJoueurs(new Joueur(sc.next()));
@@ -89,12 +92,12 @@ public class Application {
 	
 	public void jouer() {
 		System.out.print("Bienvenue dans cette nouvelle partie de Mille Bornes\n");
-		
 		initialiserPartie();
-		
-		System.out.println("\nC'est parti !\n");
-		
+		configurerBots();
+		configurerJoueurs();
 		jeu.prepareJeu();
+		
+		System.out.println("\n----------------------------------- C'est parti ! -----------------------------------\n");
 		
 		while (!(jeu.estPartieFinie())) {
 			jeu.joue();

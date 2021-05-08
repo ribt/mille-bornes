@@ -10,8 +10,8 @@ import mille_bornes.cartes.parades.FinDeLimite;
 
 public class BotGentil extends Bot {
 
-	public BotGentil(String nom) {
-		super(nom);
+	public BotGentil() {
+		super("Bot gentil");
 	}
 	
 	@Override

@@ -11,8 +11,8 @@ import mille_bornes.cartes.parades.FinDeLimite;
 
 public class BotMechant extends Bot {
 
-	public BotMechant(String nom) {
-		super(nom);
+	public BotMechant() {
+		super("Bot méchant");
 	}
 	
 	@Override
