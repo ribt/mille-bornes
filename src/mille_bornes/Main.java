@@ -5,7 +5,9 @@ import java.util.List;
 public class Main  {
 
 	public static void main(String[] args) {
-		Jeu jeu = Application.getParamJeu();
+		//Jeu jeu = Application.getParamJeu();
+		
+		Jeu jeu = new Jeu(new Joueur("Suake"), new Joueur("Ribt"));
 		jeu.prepareJeu();
 		
 		while(!(jeu.estPartieFinie())) {

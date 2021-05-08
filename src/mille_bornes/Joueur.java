@@ -94,7 +94,7 @@ public class Joueur  {
 		int i = 0;
 		ArrayList<Joueur> adversaires = new ArrayList<Joueur>();
 		
-		System.out.println("Choisissez l'adversaire à attaquer :");
+		System.out.println("Choisissez l'adversaire à attaquer, faites -1 pour annuler l'attaque :");
 		while (j != this) {
 			System.out.println((i+1)+" : "+j.nom);
 			adversaires.add(j);
@@ -107,7 +107,10 @@ public class Joueur  {
 			try {
 				System.out.print("> ");
 				choix = input.nextInt();
-				if (choix <= 0 || choix > i) {
+				if (choix == -1) {
+					return this;
+				}
+				else if (choix <= 0 || choix > i) {
 					System.out.println("Choisissez un nombre de la liste ci-dessus.");
 				}
 			} catch (InputMismatchException e) {
@@ -143,7 +146,13 @@ public class Joueur  {
 	public void joueCarte(Jeu jeu, int numero) throws IllegalStateException {
 		Carte carte = getMain().get(numero);
 		if (carte instanceof Attaque) {
-			etat.joueCarte(jeu, numero, choisitAdversaire((Attaque)carte));
+			Joueur adversaire = choisitAdversaire((Attaque)carte);
+			if(adversaire.equals(this)) {
+				throw new IllegalStateException("L'attaque est annulé");
+			}
+			else {
+				etat.joueCarte(jeu, numero, adversaire);
+			}
 		} else {
 			etat.joueCarte(jeu, numero);
 		}

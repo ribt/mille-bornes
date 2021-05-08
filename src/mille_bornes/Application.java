@@ -34,17 +34,20 @@ public class Application {
 			try {
 				nombreBots = Integer.valueOf(input);
 				if(nombreBots < 0 || nombreBots > nombreJoueurs) {
-					System.out.print("Erreur : Il ne peut y avoir qu'entre 0 et "+nombreJoueurs+" bots\n> ");
+					throw new Exception("Il ne peut y avoir qu'entre 0 et "+nombreJoueurs+" bots\n> ");
 				}
 			} catch(NumberFormatException e) {
 				System.out.print("Erreur : Le nombre de bots a été mal rentré\n> ");
+			}catch(Exception e) {
+				System.out.print("Erreur : "+e.getMessage());
 			}
 		}
 		
 		System.out.print("Il y a "+nombreJoueurs+" joueurs dont "+nombreBots+" bot");
 		if(nombreBots>1){
 			System.out.println("s");
-		}
+		} else
+			System.out.print("\n");
 		
 		
 		for(int i = 0; i < nombreBots; i++) {
@@ -82,7 +85,7 @@ public class Application {
 		}
 		
 		for(int i = 0; i < (nombreJoueurs - nombreBots); i++) {
-			System.out.println("Quelle nom voulez vous pour le joueur n°"+(i+1)+" ?\n> ");
+			System.out.print("Quelle nom voulez vous pour le joueur n°"+(i+1)+" ?\n> ");
 			input = sc.next();
 			jeu.ajouteJoueurs(new Joueur(input));
 		}
