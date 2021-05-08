@@ -91,7 +91,7 @@ public class Application {
 	}
 	
 	public void jouer() {
-		System.out.print("Bienvenue dans cette nouvelle partie de Mille Bornes\n");
+		System.out.println("Bienvenue dans cette nouvelle partie de Mille Bornes\n");
 		initialiserPartie();
 		configurerBots();
 		configurerJoueurs();
