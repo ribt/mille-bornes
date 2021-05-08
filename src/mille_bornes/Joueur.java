@@ -71,10 +71,11 @@ public class Joueur  {
 		while (true) {
 			try {
 				System.out.print("> ");
-				return input.nextInt();
+				int choix = this.input.nextInt();
+				return choix;
 			} catch (InputMismatchException e) {
 				System.out.println("Merci d'entrer un nombre valide...");
-				input.nextLine();
+				this.input.nextLine();
 			}
 		}
 	}

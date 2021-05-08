@@ -1,5 +1,6 @@
 package mille_bornes;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import mille_bornes.bots.*;
@@ -7,89 +8,78 @@ import mille_bornes.bots.*;
 public class Application {
 	public static Jeu getParamJeu() {
 		Scanner sc = new Scanner(System.in);
-		String input;
 		int nombreJoueurs = 0;
 		int nombreBots = -1;
 		int difficulteBot;
 		Jeu jeu = new Jeu();
 		
-		System.out.print("Bienvenue dans cette nouvelle partie de Mille Bornes\nA combien voulez vous jouer ?\n> ");
+		System.out.print("Bienvenue dans cette nouvelle partie de Mille Bornes\n");
 		
 		while(nombreJoueurs <= 1 || nombreJoueurs > 4) {
-			input = sc.next();
-			try {
-				nombreJoueurs = Integer.valueOf(input);
-				if(nombreJoueurs <= 1 || nombreJoueurs > 4) {
-					System.out.print("Erreur : Il ne peut y avoir qu'entre 2 et 4 joueurs\n> ");
-				}
-			} catch(NumberFormatException e) {
-				System.out.print("Erreur : Le nombre de joueurs a été mal rentré\n> ");
+			nombreJoueurs = demandeInt(sc, "A combien voulez vous jouer ?\n> ");
+			if(nombreJoueurs <= 1 || nombreJoueurs > 4) {
+					System.out.println("Erreur : Il ne peut y avoir qu'entre 2 et 4 joueurs");
 			}
 		}
 		
-		System.out.print("Combien de bot voulez vous ?\n> ");
-		
 		while(nombreBots < 0 || nombreBots > nombreJoueurs) {
-			input = sc.next();
-			try {
-				nombreBots = Integer.valueOf(input);
-				if(nombreBots < 0 || nombreBots > nombreJoueurs) {
-					throw new Exception("Il ne peut y avoir qu'entre 0 et "+nombreJoueurs+" bots\n> ");
-				}
-			} catch(NumberFormatException e) {
-				System.out.print("Erreur : Le nombre de bots a été mal rentré\n> ");
-			}catch(Exception e) {
-				System.out.print("Erreur : "+e.getMessage());
+			nombreBots = demandeInt(sc, "Combien de bot voulez vous ? Il peut en avoir jusqu'à "+nombreJoueurs+"\n> ");
+			if(nombreBots < 0 || nombreBots > nombreJoueurs) {
+				System.out.println("Il ne peut y avoir qu'entre 0 et "+nombreJoueurs+" bots");
 			}
 		}
 		
 		System.out.print("Il y a "+nombreJoueurs+" joueurs dont "+nombreBots+" bot");
 		if(nombreBots>1){
 			System.out.println("s");
-		} else
+		} else {
 			System.out.print("\n");
-		
+		}
 		
 		for(int i = 0; i < nombreBots; i++) {
 			difficulteBot = 0;
-			System.out.println("Quelle difficulté voulez vous pour le bot n°"+(i+1)+" ?\nIl y a 3 Niveaux\n> ");
 			while(difficulteBot < 1 || difficulteBot > 3) {
-				input = sc.next();
-				try {
-					difficulteBot = Integer.valueOf(input);
-					if(difficulteBot < 1 || difficulteBot > 3) {
-						System.out.print("Erreur : Il n'y a que 3 niveaux de difficulté\n> ");
+				difficulteBot = demandeInt(sc, "Quelle difficulté voulez vous pour le bot n°"+(i+1)+" ?\nIl y a 3 niveaux entre 1 et 3\n> ");
+				if(difficulteBot < 1 || difficulteBot > 3) {
+					System.out.print("Erreur : Il n'y a que 3 niveaux de difficulté");
+				}
+				else {
+					System.out.print("Quel nom voulez vous lui donner ?\n> ");
+					switch(difficulteBot) {
+					case 1:
+						jeu.ajouteJoueurs(new BotDebile(sc.next()));
+						break;
+					case 2:
+						jeu.ajouteJoueurs(new BotGentil(sc.next()));
+						break;
+					case 3:
+						jeu.ajouteJoueurs(new BotMechant(sc.next()));
+						break;
 					}
-					else {
-						System.out.print("Quel nom voulez vous lui donner ?\n> ");
-						input = sc.next();
-						switch(difficulteBot) {
-						case 1:
-							jeu.ajouteJoueurs(new BotDebile(input));
-							System.out.println("Création d'un bot débile répondant au doux nom de "+input);
-							break;
-						case 2:
-							jeu.ajouteJoueurs(new BotGentil(input));
-							System.out.println("Création d'un bot gentil répondant au doux nom de "+input);
-							break;
-						case 3:
-							jeu.ajouteJoueurs(new BotMechant(input));
-							System.out.println("Création d'un bot mechant répondant au doux nom de "+input);
-							break;
-						}
-					}
-				} catch(NumberFormatException e) {
-					System.out.print("Erreur : La difficulté été mal rentré\n> ");
 				}
 			}
 		}
 		
 		for(int i = 0; i < (nombreJoueurs - nombreBots); i++) {
 			System.out.print("Quelle nom voulez vous pour le joueur n°"+(i+1)+" ?\n> ");
-			input = sc.next();
-			jeu.ajouteJoueurs(new Joueur(input));
+			jeu.ajouteJoueurs(new Joueur(sc.next()));
 		}
-		sc.close();
 		return jeu;
+	}
+	
+	public static int demandeInt(Scanner sc, String question) {
+		int nombre;
+		while(true) {
+			try {
+				nombre = 0;
+				System.out.print(question);
+				nombre = sc.nextInt();
+				return nombre;
+			}
+			catch (InputMismatchException e){
+				System.out.println("Le chiffre est mal rentré.");
+				sc.nextLine();
+			}
+		}
 	}
 }
