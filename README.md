@@ -6,7 +6,7 @@ Ce jeu de 1000 bornes a été créé dans le cadre de notre DUT informatique. Il
 - La méthode `appliqueEffet` de la classe Bataille a été passée en `abstract` car tous ses descendants l'*overrident*.
 - Une classe Application a été créée pour alléger la classe Main.
 
-Remarque : les commentaires précédents chaque méthode ont été générés depuis la Javadoc grâce à [un outil créé pour l'occasion](https://github.com/ribt/javadoc-reverse).
+Remarque : les commentaires précédant chaque méthode ont été générés depuis la Javadoc grâce à [un outil créé pour l'occasion](https://github.com/ribt/javadoc-reverse).
 
 ## Les bots
 
