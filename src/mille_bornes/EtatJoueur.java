@@ -242,12 +242,32 @@ public class EtatJoueur  {
 	IllegalStateException - si la carte n'est pas jouable
 	*/
 	public void joueCarte(Jeu jeu, int numero, Joueur adversaire) throws IllegalStateException {
+		int i = 0;
 		Carte carte = main.get(numero);
 		if (!(carte instanceof Attaque)) {
 			throw new IllegalStateException("La carte n'est pas une attaque donc il ne faut pas spécifier d'adversaire.");
 		}
 		adversaire.attaque(jeu, (Attaque)carte);
 		main.remove(numero);
+		for(Carte carteCoupFourre: adversaire.getMain()) {
+			i++;
+			if(carteCoupFourre instanceof Botte && ((Botte) carteCoupFourre).contre((Attaque) carte)) {
+				boolean choix = false;
+				Scanner sc =  new Scanner(System.in);
+				String reponse;
+				System.out.print("Joueur "+adversaire.nom+" vous pouvez déclancher un coup fourré avec la botte "+carteCoupFourre.nom+". Voulez vous le faire ?\nOui - Non\n> ");
+				while(!choix) {
+					reponse = sc.next();
+					if(reponse.toUpperCase().equals("OUI")) {
+						adversaire.joueCarte(jeu, i);
+						choix = true;
+					}
+					if(reponse.toUpperCase().equals("NON")) {
+						choix = true;
+					}
+				}
+			}
+		}
 	}
 
 	/*
