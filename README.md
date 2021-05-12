@@ -2,10 +2,10 @@
 
 Ce jeu de 1000 bornes a été créé dans le cadre de notre DUT informatique. Il fallait respecter l'architecture choisie par les professeurs. Voici les points de différence avec la Javadoc fournie :
 
-- La classe EtatJoueur n'a plus d'attribut `joueur` car il n'était pas utilisé et cela créait un warning.
 - La méthode `appliqueEffet` de la classe Bataille a été passée en `abstract` car tous ses descendants l'*overrident*.
 - La méthode `choisitAdversaire` prend toujours une attaque en argument alors le type du paramètre a été changé par `Attaque` (au lieu de `Bataille`). 
 - Une classe Application a été créée pour alléger la classe Main.
+- `choisitCoupFoure` a été ajouté dans Joueur et EtatJoueur, il est appelé par Attaque.appliqueEffet si le joueur a la bonne botte dans la main.
 
 Remarque : les commentaires précédant chaque méthode ont été générés depuis la Javadoc grâce à [un outil créé pour l'occasion](https://github.com/ribt/javadoc-reverse).
 
