@@ -3,6 +3,8 @@ package mille_bornes.cartes.attaques;
 import mille_bornes.EtatJoueur;
 import mille_bornes.Jeu;
 import mille_bornes.cartes.Attaque;
+import mille_bornes.cartes.Botte;
+import mille_bornes.cartes.Carte;
 
 public class LimiteVitesse extends Attaque {
 
@@ -50,6 +52,12 @@ public class LimiteVitesse extends Attaque {
 		}
 		else {
 			joueur.setLimiteVitesse(true);
+		}
+		for (Carte c: joueur.getMain()) {
+			if (c instanceof Botte && ((Botte) c).contre(this)) {
+				joueur.choisitCoupFourre(jeu, this, joueur.getMain().indexOf(c));
+				break; // désole pour le break mais sinon c'est ConcurrentModificationException
+			}
 		}
 	}
 }

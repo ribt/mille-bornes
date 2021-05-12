@@ -36,9 +36,9 @@ public class Application {
 		
 		System.out.print("Il y a "+nombreJoueurs+" joueurs dont "+nombreBots+" bot");
 		if (nombreBots>1) {
-			System.out.println("s.");
+			System.out.println("s.\n");
 		} else {
-			System.out.println(".");
+			System.out.println(".\n");
 		}
 	}
 		
