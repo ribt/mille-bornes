@@ -240,13 +240,14 @@ public class Joueur  {
 	
 	public void choisitCoupFourre(Jeu jeu, Attaque carte, Botte botte) {
 		String choix = "";
-		System.out.println("Tu es attaqué par "+carte+" mais tu as "+botte+". Veux tu la jouer maintenant (coup fourré) ?\n (oui/non) >");
+		System.out.println(nom+", on t'attaque avec "+carte+" mais tu as "+botte+". Veux-tu poser ta botte maintenant (coup fourré) ?");
 		
-		while (choix != "oui" && choix != "non") {
+		while (!choix.equals("oui") || choix.equals("non")) {
+			System.out.print("(oui/non) > ");
 			choix = input.next();
 		}
 		
-		if (choix == "oui") {
+		if (choix.equals("oui")) {
 			joueCarte(jeu, getMain().indexOf(botte));
 			getMain().add(jeu.pioche());
 			jeu.setProchainJoueur(this);
