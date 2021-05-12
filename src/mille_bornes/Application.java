@@ -101,6 +101,7 @@ public class Application {
 		
 		while (!(jeu.estPartieFinie())) {
 			jeu.joue();
+			System.out.print("----------------------------------- fin de tour -----------------------------------\n\n");
 		}
 		
 		System.out.println("La partie est finie.");

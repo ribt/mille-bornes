@@ -139,8 +139,6 @@ public class Jeu  {
 				
 			}
 		}
-		
-		System.out.print("----------------------------------- fin de tour -----------------------------------\n\n");
 
 		return estPartieFinie();
 	}
