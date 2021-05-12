@@ -5,7 +5,6 @@ import java.util.Random;
 import mille_bornes.Jeu;
 import mille_bornes.Joueur;
 import mille_bornes.cartes.Attaque;
-import mille_bornes.cartes.Botte;
 
 public abstract class Bot extends Joueur {
 	protected Random rand = new Random();
@@ -39,9 +38,10 @@ public abstract class Bot extends Joueur {
 	}
 	
 	@Override
-	public void choisitCoupFourre(Jeu jeu, Attaque carte, Botte botte) {
-		joueCarte(jeu, getMain().indexOf(botte));
-		getMain().add(jeu.pioche());
+	public void choisitCoupFourre(Jeu jeu, Attaque attaque, int numero) {
+		System.out.println("Coup fourré !");
+		joueCarte(jeu, numero);
+		prendCarte(jeu.pioche());
 		jeu.setProchainJoueur(this);
 	}
 }

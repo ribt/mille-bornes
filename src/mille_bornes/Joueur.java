@@ -238,9 +238,20 @@ public class Joueur  {
 		return etat.getBottes();
 	}
 	
-	public void choisitCoupFourre(Jeu jeu, Attaque carte, Botte botte) {
+	/*
+	 Demande au joueur s'il veut faire un coup fourré et le joue s'il répond "oui".
+	 
+	 Throws:
+	IllegalStateException - s'il n'est pas possible de faire un coup fourré avec les paramètres	 
+	 */
+	public void choisitCoupFourre(Jeu jeu, Attaque attaque, int numero) throws IllegalStateException {
+		Carte carte = getMain().get(numero);
+		if (!(carte instanceof Botte)) {
+			throw new IllegalStateException(carte+" ne permet de faire un coup fourré contre "+attaque);
+		}
+		
 		String choix = "";
-		System.out.println(nom+", on t'attaque avec "+carte+" mais tu as "+botte+". Veux-tu poser ta botte maintenant (coup fourré) ?");
+		System.out.println(nom+", on t'attaque avec "+attaque+" mais tu as "+carte+". Veux-tu poser ta botte maintenant (coup fourré) ?");
 		
 		while (!choix.equals("oui") || choix.equals("non")) {
 			System.out.print("(oui/non) > ");
@@ -248,8 +259,8 @@ public class Joueur  {
 		}
 		
 		if (choix.equals("oui")) {
-			joueCarte(jeu, getMain().indexOf(botte));
-			getMain().add(jeu.pioche());
+			joueCarte(jeu, numero);
+			prendCarte(jeu.pioche());
 			jeu.setProchainJoueur(this);
 		}
 	}

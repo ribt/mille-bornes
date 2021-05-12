@@ -248,7 +248,7 @@ public class EtatJoueur  {
 		if (!(carte instanceof Attaque)) {
 			throw new IllegalStateException("La carte n'est pas une attaque donc il ne faut pas spécifier d'adversaire.");
 		}
-		adversaire.attaque(jeu, (Attaque)carte);
+		adversaire.attaque(jeu, (Attaque) carte);
 		main.remove(numero);
 	}
 
@@ -264,7 +264,7 @@ public class EtatJoueur  {
 		return bottes;
 	}
 	
-	public void choisitCoupFourre(Jeu jeu, Attaque carte, Botte botte) {
-		joueur.choisitCoupFourre(jeu, carte, botte);
+	public void choisitCoupFourre(Jeu jeu, Attaque carte, int numero) {
+		joueur.choisitCoupFourre(jeu, carte, numero);
 	}
 }
