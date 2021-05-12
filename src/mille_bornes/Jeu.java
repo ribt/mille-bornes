@@ -134,7 +134,7 @@ public class Jeu  {
 				if (e instanceof IllegalStateException) {
 					System.out.println("Erreur : "+e.getMessage());
 				} else {
-					System.out.println("Erreur improbbale : "+e);
+					System.out.println("Erreur improbale : "+e);
 				}
 				
 			}

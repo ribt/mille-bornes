@@ -21,14 +21,14 @@ public class Application {
 	
 	public void initialiserPartie() {				
 		while (nombreJoueurs <= 1 || nombreJoueurs > 4) {
-			nombreJoueurs = demandeInt("À combien voulez-vous jouer ?\n> ");
+			nombreJoueurs = demandeInt("\nÀ combien voulez-vous jouer ?\n> ");
 			if (nombreJoueurs <= 1 || nombreJoueurs > 4) {
 					System.out.println("Erreur : Il ne peut y avoir qu'entre 2 et 4 joueurs.");
 			}
 		}
 		
 		while (nombreBots < 0 || nombreBots > nombreJoueurs) {
-			nombreBots = demandeInt("Combien de bot(s) voulez-vous ? Il peut y en avoir jusqu'à "+nombreJoueurs+".\n> ");
+			nombreBots = demandeInt("\nCombien de bot(s) voulez-vous ? Il peut y en avoir jusqu'à "+nombreJoueurs+".\n> ");
 			if (nombreBots < 0 || nombreBots > nombreJoueurs) {
 				System.out.println("Il ne peut y en avoir qu'entre 0 et "+nombreJoueurs+" bots.");
 			}
@@ -47,7 +47,7 @@ public class Application {
 		for (int i = 0; i < nombreBots; i++) {
 			difficulteBot = 0;
 			while (difficulteBot < 1 || difficulteBot > 3) {
-				difficulteBot = demandeInt("Quelle difficulté voulez-vous pour le bot n°"+(i+1)+" ?\n(un chiffre entre 1 et 3)\n> ");
+				difficulteBot = demandeInt("\nQuelle difficulté voulez-vous pour le bot n°"+(i+1)+" ?\n(un chiffre entre 1 et 3)\n> ");
 				if (difficulteBot < 1 || difficulteBot > 3) {
 					System.out.print("Erreur : Il n'y a que 3 niveaux de difficulté.");
 				}
@@ -70,7 +70,7 @@ public class Application {
 	
 	public void configurerJoueurs() {
 		for (int i = 0; i < (nombreJoueurs - nombreBots); i++) {
-			System.out.print("Quelle nom voulez-vous pour le joueur n°"+(i+1)+" ?\n> ");
+			System.out.print("\nQuel nom voulez-vous pour le joueur n°"+(i+1)+" ?\n> ");
 			jeu.ajouteJoueurs(new Joueur(sc.next()));
 		}
 	}
@@ -91,7 +91,7 @@ public class Application {
 	}
 	
 	public void jouer() {
-		System.out.println("Bienvenue dans cette nouvelle partie de Mille Bornes\n");
+		System.out.println("Bienvenue dans cette nouvelle partie de Mille Bornes");
 		initialiserPartie();
 		configurerBots();
 		configurerJoueurs();
@@ -101,7 +101,6 @@ public class Application {
 		
 		while (!(jeu.estPartieFinie())) {
 			jeu.joue();
-			System.out.print("----------------------------------- fin de tour -----------------------------------\n\n");
 		}
 		
 		System.out.println("La partie est finie.");

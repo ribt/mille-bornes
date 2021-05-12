@@ -95,7 +95,7 @@ public class Joueur  {
 		int i = 0;
 		ArrayList<Joueur> adversaires = new ArrayList<Joueur>();
 		
-		System.out.println("Choisissez l'adversaire à attaquer :");
+		System.out.println("\nChoisissez l'adversaire à attaquer :");
 		while (j != this) {
 			System.out.println((i+1)+" : "+j.nom);
 			adversaires.add(j);
@@ -251,7 +251,7 @@ public class Joueur  {
 		}
 		
 		String choix = "";
-		System.out.println(nom+", on t'attaque avec "+attaque+" mais tu as "+carte+". Veux-tu poser ta botte maintenant (coup fourré) ?");
+		System.out.println("\n"+nom+", on t'attaque avec "+attaque+" mais tu as "+carte+". Veux-tu poser ta botte maintenant ?");
 		
 		while (!choix.equals("oui") || choix.equals("non")) {
 			System.out.print("(oui/non) > ");
@@ -259,6 +259,7 @@ public class Joueur  {
 		}
 		
 		if (choix.equals("oui")) {
+			System.out.println("Coup fourré !");
 			joueCarte(jeu, numero);
 			prendCarte(jeu.pioche());
 			jeu.setProchainJoueur(this);

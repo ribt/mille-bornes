@@ -39,7 +39,7 @@ public abstract class Bot extends Joueur {
 	
 	@Override
 	public void choisitCoupFourre(Jeu jeu, Attaque attaque, int numero) {
-		System.out.println("Coup fourré !");
+		System.out.print("---------------------------------- Coup fourré ! ----------------------------------");
 		joueCarte(jeu, numero);
 		prendCarte(jeu.pioche());
 		jeu.setProchainJoueur(this);
