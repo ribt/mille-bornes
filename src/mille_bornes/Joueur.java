@@ -15,7 +15,7 @@ public class Joueur  {
 
 	public Joueur(String nom) {
 		this.nom = nom;
-		this.etat = new EtatJoueur();
+		this.etat = new EtatJoueur(this);
 		this.input = new Scanner(System.in);
 	}
 
@@ -236,5 +236,20 @@ public class Joueur  {
 	*/
 	public List<Botte> getBottes() {
 		return etat.getBottes();
+	}
+	
+	public void choisitCoupFourre(Jeu jeu, Attaque carte, Botte botte) {
+		String choix = "";
+		System.out.println("Tu es attaqué par "+carte+" mais tu as "+botte+". Veux tu la jouer maintenant (coup fourré) ?\n (oui/non) >");
+		
+		while (choix != "oui" && choix != "non") {
+			choix = input.next();
+		}
+		
+		if (choix == "oui") {
+			joueCarte(jeu, getMain().indexOf(botte));
+			getMain().add(jeu.pioche());
+			jeu.setProchainJoueur(this);
+		}
 	}
 }

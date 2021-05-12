@@ -15,13 +15,15 @@ public class EtatJoueur  {
 	private final List<Botte> bottes;
 	private int km;
 	private boolean limiteVitesse;
+	private Joueur joueur;
 
-	EtatJoueur() {
+	EtatJoueur(Joueur joueur) {
 		this.pileBataille = new Stack<Bataille>();
 		this.main = new ArrayList<Carte>();
 		this.bottes = new ArrayList<Botte>();
 		this.km = 0;
 		this.limiteVitesse = false;
+		this.joueur = joueur;
 	}
 
 	/*
@@ -260,5 +262,9 @@ public class EtatJoueur  {
 	*/
 	public List<Botte> getBottes() {
 		return bottes;
+	}
+	
+	public void choisitCoupFourre(Jeu jeu, Attaque carte, Botte botte) {
+		joueur.choisitCoupFourre(jeu, carte, botte);
 	}
 }

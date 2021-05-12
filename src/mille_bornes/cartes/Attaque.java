@@ -48,5 +48,10 @@ public abstract class Attaque extends Bataille {
 			}
 		}
 		joueur.setBataille(this);
+		for (Carte c: joueur.getMain()) {
+			if (c instanceof Botte && ((Botte) c).contre(this)) {
+				joueur.choisitCoupFourre(jeu, this, (Botte) c);
+			}
+		}
 	}
 }
