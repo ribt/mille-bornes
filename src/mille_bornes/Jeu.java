@@ -116,8 +116,6 @@ public class Jeu  {
 	*/
 	public boolean joue() {
 		activeProchainJoueurEtTireCarte();
-//		System.out.print("\033[H\033[2J");  
-//	    System.out.flush();
 		System.out.println(this);
 		int succes = 0;
 		while (succes == 0) {
@@ -133,7 +131,12 @@ public class Jeu  {
 					throw new Exception("Choix invalide");
 				}
 			} catch (Exception e) {
-				System.out.println("Erreur : "+e.getMessage());
+				if (e instanceof IllegalStateException) {
+					System.out.println("Erreur : "+e.getMessage());
+				} else {
+					System.out.println("Erreur improbbale : "+e);
+				}
+				
 			}
 		}
 		
