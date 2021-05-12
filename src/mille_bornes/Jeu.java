@@ -128,7 +128,7 @@ public class Jeu  {
 					joueurActif.joueCarte(this, choix-1);
 					succes = 1;
 				} else {
-					throw new Exception("Choix invalide");
+					throw new IllegalStateException("Choix invalide");
 				}
 			} catch (Exception e) {
 				if (e instanceof IllegalStateException) {
