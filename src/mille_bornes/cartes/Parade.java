@@ -23,7 +23,7 @@ public abstract class Parade extends Bataille {
 	*/
 	public void appliqueEffet(Jeu jeu, EtatJoueur joueur) throws IllegalStateException {
 		if (joueur.getBataille() == null && !joueur.getBottes().contains(VehiculePrioritaire.unique)) {
-			throw new IllegalStateException("Il faut commencer par un feu vert");
+			throw new IllegalStateException("Vous n'avez toujours pas démarré, il faut commencer par un feu vert");
 		}
 		if (joueur.getBataille() instanceof Attaque && this.contre((Attaque)joueur.getBataille())) {
 			joueur.setBataille(this);

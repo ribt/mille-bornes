@@ -27,7 +27,7 @@ public abstract class Bot extends Joueur {
 	
 	@Override
 	public void joueCarte(Jeu jeu, int numero, Joueur adversaire) {
-		System.out.println("\nJe joue "+getMain().get(numero)+" sur "+adversaire.nom+".");
+		System.out.println("\nJ'attaque "+adversaire.nom+" avec "+getMain().get(numero)+".");
 		super.joueCarte(jeu, numero, adversaire);
 	}
 	

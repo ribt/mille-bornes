@@ -34,7 +34,7 @@ public class Application {
 			}
 		}
 		
-		System.out.print("Il y a "+nombreJoueurs+" joueurs dont "+nombreBots+" bot");
+		System.out.print("Il y a "+nombreJoueurs+" joueurs dont "+nombreBots+" bot(s)");
 		if (nombreBots>1) {
 			System.out.println("s.\n");
 		} else {
@@ -47,7 +47,7 @@ public class Application {
 		for (int i = 0; i < nombreBots; i++) {
 			difficulteBot = 0;
 			while (difficulteBot < 1 || difficulteBot > 3) {
-				difficulteBot = demandeInt("\nQuelle difficulté voulez-vous pour le bot n°"+(i+1)+" ?\n(un chiffre entre 1 et 3)\n> ");
+				difficulteBot = demandeInt("\nQuelle difficulté voulez-vous pour le bot n°"+(i+1)+" ?\n(1 : Très facile ; 2 : Facile ; 3 : Normal)\n> ");
 				if (difficulteBot < 1 || difficulteBot > 3) {
 					System.out.print("Erreur : Il n'y a que 3 niveaux de difficulté.");
 				}
@@ -70,7 +70,7 @@ public class Application {
 	
 	public void configurerJoueurs() {
 		for (int i = 0; i < (nombreJoueurs - nombreBots); i++) {
-			System.out.print("\nQuel nom voulez-vous pour le joueur n°"+(i+1)+" ?\n> ");
+			System.out.print("\nQuel nom voulez-vous pour le joueur n°"+(i+1)+" ?\nLes espaces ne sont pas pris en compte.\n> ");
 			jeu.ajouteJoueurs(new Joueur(sc.next()));
 		}
 	}
@@ -91,7 +91,7 @@ public class Application {
 	}
 	
 	public void jouer() {
-		System.out.println("Bienvenue dans cette nouvelle partie de Mille Bornes");
+		System.out.println("Bienvenue dans cette nouvelle partie de Mille Bornes.");
 		initialiserPartie();
 		configurerBots();
 		configurerJoueurs();
@@ -109,7 +109,7 @@ public class Application {
 		if (gagnants.size() == 1) {
 			System.out.println("Le gagnant est "+gagnants.get(0).nom+" !");
 		} else {
-			System.out.println("Les gagnants ex-aequo sont :");
+			System.out.println("Les gagnants ex æquo sont :");
 			for (Joueur j: gagnants) {
 				System.out.println("- "+j.nom);
 			}

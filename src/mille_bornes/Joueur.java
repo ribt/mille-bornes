@@ -7,7 +7,7 @@ import mille_bornes.cartes.Bataille;
 import mille_bornes.cartes.Botte;
 import mille_bornes.cartes.Carte;
 
-public class Joueur  {
+public class Joueur {
 	public final String nom;
 	private final EtatJoueur etat;
 	private final Scanner input;
@@ -253,12 +253,12 @@ public class Joueur  {
 		String choix = "";
 		System.out.println("\n"+nom+", on t'attaque avec "+attaque+" mais tu as "+carte+". Veux-tu poser ta botte maintenant ?");
 		
-		while (!choix.equals("oui") || choix.equals("non")) {
+		while (!choix.toUpperCase().equals("OUI") || choix.toUpperCase().equals("NON")) {
 			System.out.print("(oui/non) > ");
 			choix = input.next();
 		}
 		
-		if (choix.equals("oui")) {
+		if (choix.toUpperCase().equals("OUI")) {
 			System.out.println("Coup fourré !");
 			joueCarte(jeu, numero);
 			prendCarte(jeu.pioche());

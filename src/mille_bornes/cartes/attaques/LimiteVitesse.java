@@ -48,7 +48,7 @@ public class LimiteVitesse extends Attaque {
 	*/
 	public void appliqueEffet(Jeu jeu, EtatJoueur joueur) throws IllegalStateException {
 		if (joueur.getLimiteVitesse()) {
-			throw new IllegalStateException("La vitesse de ce joueur est déjà limitée");
+			throw new IllegalStateException("La vitesse de ce joueur est déjà limitée.");
 		}
 		else {
 			joueur.setLimiteVitesse(true);

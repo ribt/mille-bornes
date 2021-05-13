@@ -49,7 +49,7 @@ public class FeuVert extends Parade {
 			joueur.setBataille(this);
 		}
 		else {
-			throw new IllegalStateException("Vous ne pouvez pas jouer un Feu Vert dans cette situation.");
+			throw new IllegalStateException("Vous ne pouvez pas jouer un feu vert dans cette situation.");
 		}
 	}
 }

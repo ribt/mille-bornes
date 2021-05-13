@@ -4,7 +4,7 @@ import java.util.*;
 
 import mille_bornes.cartes.Carte;
 
-public class Jeu  {
+public class Jeu {
 	private final List<Joueur> joueurs;
 	private Joueur joueurActif;
 	private Joueur prochainJoueur;
@@ -95,10 +95,14 @@ public class Jeu  {
 			txt += j.toString() + "\n\n";
 		}
 		txt += this.getNbCartesSabot()+" carte";
-		if (this.getNbCartesSabot() > 1) txt += "s";
+		if (this.getNbCartesSabot() > 1) {
+			txt += "s";
+		}
 		txt += " dans la pioche et "+this.defausse.getNbCartes()+" carte";
-		if (this.defausse.getNbCartes() > 1) txt += "s";
-		txt += " dans la défausse";
+		if (this.defausse.getNbCartes() > 1) {
+			txt += "s";
+		}
+		txt += " dans la défausse.";
 		return txt;
 	}
 
@@ -128,7 +132,7 @@ public class Jeu  {
 					joueurActif.joueCarte(this, choix-1);
 					succes = 1;
 				} else {
-					throw new IllegalStateException("Choix invalide");
+					throw new IllegalStateException("Choix invalide.");
 				}
 			} catch (Exception e) {
 				if (e instanceof IllegalStateException) {

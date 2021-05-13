@@ -9,7 +9,7 @@ import mille_bornes.cartes.Carte;
 import mille_bornes.cartes.attaques.LimiteVitesse;
 import mille_bornes.cartes.bottes.VehiculePrioritaire;
 
-public class EtatJoueur  {
+public class EtatJoueur {
 	private final Stack<Bataille> pileBataille;
 	private final List<Carte> main;
 	private final List<Botte> bottes;
@@ -64,7 +64,7 @@ public class EtatJoueur  {
 	public String ditPourquoiPeutPasAvancer() {
 		Carte bataille = this.getBataille();
 		if (bataille == null && !getBottes().contains(VehiculePrioritaire.unique)) {
-			return "Vous ne pouvez pas avancer car il faut un Feu Vert pour commencer.";
+			return "Vous ne pouvez pas avancer car il faut un feu vert pour commencer.";
 		}
 		if (bataille instanceof Attaque && !(bataille instanceof LimiteVitesse)) {
 			return "Vous ne pouvez pas avancer car vous êtes bloqué par l'attaque "+bataille;
