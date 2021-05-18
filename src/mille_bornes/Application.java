@@ -34,7 +34,7 @@ public class Application {
 			}
 		}
 		
-		System.out.print("Il y a "+nombreJoueurs+" joueurs dont "+nombreBots+" bot(s)");
+		System.out.print("Il y a "+nombreJoueurs+" joueurs dont "+nombreBots+" bot");
 		if (nombreBots>1) {
 			System.out.println("s.\n");
 		} else {
